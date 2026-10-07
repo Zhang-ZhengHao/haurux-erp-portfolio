@@ -1,0 +1,888 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Printable ERP web application UI/UX concept portfolio by HAURUX ERP Concept."
+    />
+    <title>HAURUX ERP Concept | ERP UI/UX Portfolio</title>
+    <style>
+      :root {
+        --ink: #0b0d12;
+        --ink-2: #121720;
+        --ink-3: #1b222c;
+        --paper: #f4f5ef;
+        --paper-2: #e9ece4;
+        --white: #fbfcf7;
+        --accent: #c8ff3d;
+        --accent-dark: #719d00;
+        --muted: #68717a;
+        --muted-light: #a5adb4;
+        --line: #ccd1c8;
+        --line-dark: rgba(255, 255, 255, 0.16);
+        --green: #237a4c;
+        --blue: #2d62d6;
+        --amber: #9c6610;
+        --red: #b6433c;
+      }
+
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      body {
+        color: var(--ink);
+        background: #dfe2dc;
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        font-size: 9pt;
+        line-height: 1.42;
+        -webkit-font-smoothing: antialiased;
+      }
+      img { display: block; max-width: 100%; }
+      h1, h2, h3, h4, p { margin-top: 0; }
+      .page {
+        position: relative;
+        width: 210mm;
+        height: 297mm;
+        margin: 8mm auto;
+        overflow: hidden;
+        background: var(--paper);
+        box-shadow: 0 5mm 18mm rgba(10, 13, 18, .16);
+        break-after: page;
+        page-break-after: always;
+      }
+      .page:last-child { break-after: auto; page-break-after: auto; }
+      .page-inner { position: relative; height: 100%; padding: 13mm 14mm 14mm; }
+      .dark { color: var(--white); background: var(--ink); }
+      .dark .page-inner {
+        background:
+          radial-gradient(circle at 88% 13%, rgba(200,255,61,.13), transparent 25%),
+          linear-gradient(135deg, #0b0d12 0%, #121923 100%);
+      }
+
+      .doc-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10mm;
+        margin-bottom: 8mm;
+        padding-bottom: 4mm;
+        border-bottom: .3mm solid var(--line);
+      }
+      .dark .doc-head { border-color: var(--line-dark); }
+      .brand { display: flex; align-items: center; gap: 3mm; font-size: 8.2pt; font-weight: 800; letter-spacing: .07em; }
+      .brand-mark {
+        display: grid;
+        width: 8mm;
+        height: 8mm;
+        place-items: center;
+        border-radius: 2.4mm;
+        color: var(--ink);
+        background: var(--accent);
+        font-size: 6.7pt;
+        letter-spacing: -.04em;
+      }
+      .doc-kicker { color: var(--muted); font-size: 6.8pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+      .dark .doc-kicker { color: var(--muted-light); }
+      .page-foot {
+        position: absolute;
+        right: 14mm;
+        bottom: 6.5mm;
+        left: 14mm;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #7a838b;
+        font-size: 6.7pt;
+      }
+      .dark .page-foot { color: #8c959e; }
+      .page-no { color: var(--ink); font-weight: 800; }
+      .dark .page-no { color: var(--accent); }
+      .confidential { letter-spacing: .1em; text-transform: uppercase; }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 2mm;
+        margin-bottom: 3mm;
+        color: var(--accent-dark);
+        font-size: 6.8pt;
+        font-weight: 800;
+        letter-spacing: .15em;
+        text-transform: uppercase;
+      }
+      .eyebrow::before { width: 2mm; height: 2mm; border-radius: 50%; background: currentColor; content: ""; }
+      .dark .eyebrow { color: var(--accent); }
+      .title {
+        margin-bottom: 3mm;
+        font-size: 28pt;
+        line-height: .98;
+        letter-spacing: -.055em;
+      }
+      .subtitle { max-width: 135mm; margin-bottom: 6mm; color: var(--muted); font-size: 10.5pt; line-height: 1.48; }
+      .dark .subtitle { color: #bdc5cb; }
+      .micro { color: var(--muted); font-size: 7.2pt; }
+      .strong { color: var(--ink); font-weight: 800; }
+      .dark .strong { color: var(--white); }
+      .rule { height: .3mm; margin: 5mm 0; background: var(--line); }
+
+      .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4mm; }
+      .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3mm; }
+      .grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2.5mm; }
+      .span-2 { grid-column: span 2; }
+      .card { border: .3mm solid var(--line); border-radius: 3.5mm; background: rgba(255,255,255,.5); padding: 4mm; }
+      .card.dark-card { border-color: var(--line-dark); color: var(--white); background: var(--ink-2); }
+      .card h3 { margin-bottom: 1.6mm; font-size: 10.5pt; letter-spacing: -.025em; }
+      .card p:last-child { margin-bottom: 0; }
+      .index {
+        display: inline-grid;
+        min-width: 7mm;
+        height: 6mm;
+        margin-bottom: 4mm;
+        padding: 0 1.6mm;
+        place-items: center;
+        border-radius: 1.7mm;
+        color: var(--ink);
+        background: var(--accent);
+        font-size: 6.3pt;
+        font-weight: 900;
+      }
+      .pill-row { display: flex; flex-wrap: wrap; gap: 1.7mm; }
+      .pill { padding: 1.7mm 2.7mm; border: .3mm solid var(--line); border-radius: 99mm; color: #46505a; font-size: 6.8pt; font-weight: 700; }
+      .dark .pill { border-color: var(--line-dark); color: #c8cfd4; }
+      .pill.accent { border-color: rgba(113,157,0,.5); color: #4e7000; background: rgba(200,255,61,.19); }
+      .dark .pill.accent { border-color: rgba(200,255,61,.45); color: var(--accent); background: rgba(200,255,61,.08); }
+      .badge { display: inline-flex; align-items: center; gap: 1.5mm; padding: 1.5mm 2.3mm; border-radius: 99mm; font-size: 6.4pt; font-weight: 800; }
+      .badge::before { width: 1.5mm; height: 1.5mm; border-radius: 50%; background: currentColor; content: ""; }
+      .badge.green { color: var(--green); background: #e2f2e8; }
+      .badge.blue { color: var(--blue); background: #e3eafd; }
+      .badge.amber { color: var(--amber); background: #f6ead5; }
+      .badge.red { color: var(--red); background: #f8e1df; }
+      .badge.demo { color: #5b8000; background: rgba(200,255,61,.25); }
+      .dark .badge.demo { color: var(--accent); background: rgba(200,255,61,.1); }
+
+      /* Cover */
+      .cover .page-inner { padding: 16mm; }
+      .cover-top { display: flex; align-items: center; justify-content: space-between; }
+      .cover .brand { font-size: 8.7pt; }
+      .cover-ref { color: #7f8993; font-size: 6.8pt; letter-spacing: .12em; text-transform: uppercase; }
+      .cover-main { display: grid; grid-template-columns: 1fr 51mm; gap: 12mm; align-items: end; margin-top: 22mm; }
+      .cover h1 { max-width: 128mm; margin: 3mm 0 6mm; font-size: 43pt; line-height: .88; letter-spacing: -.075em; }
+      .cover h1 em { color: var(--accent); font-style: normal; }
+      .cover-lede { max-width: 118mm; color: #bec6cc; font-size: 11.2pt; line-height: 1.55; }
+      .portrait-wrap { position: relative; align-self: end; }
+      .portrait-frame { position: relative; width: 48mm; height: 63mm; overflow: hidden; border: .35mm solid rgba(255,255,255,.2); border-radius: 5mm; background: var(--ink-3); }
+      .portrait-frame::after { position: absolute; inset: 0; border: 1.4mm solid rgba(200,255,61,.08); border-radius: 4.5mm; content: ""; }
+      .portrait-frame img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; filter: saturate(.85) contrast(1.04); }
+      .portrait-label { margin-top: 3mm; color: #9fa8af; font-size: 6.5pt; line-height: 1.45; }
+      .portrait-label strong { display: block; color: var(--white); font-size: 8pt; }
+      .cover-scope { margin-top: 14mm; padding-top: 6mm; border-top: .3mm solid var(--line-dark); }
+      .cover-scope-label { margin-bottom: 3mm; color: #7e8992; font-size: 6.5pt; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+      .cover-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5mm; margin-top: 12mm; }
+      .cover-stat { min-height: 24mm; padding: 4mm; border: .3mm solid var(--line-dark); border-radius: 3mm; background: rgba(255,255,255,.025); }
+      .cover-stat strong { display: block; color: var(--accent); font-size: 20pt; letter-spacing: -.055em; line-height: 1; }
+      .cover-stat span { display: block; margin-top: 2mm; color: #8f99a2; font-size: 6.7pt; }
+      .cover-disclosure { position: absolute; right: 16mm; bottom: 15mm; left: 16mm; display: flex; justify-content: space-between; gap: 10mm; color: #747f89; font-size: 6.2pt; }
+
+      /* Requirement mapping */
+      .match-table { overflow: hidden; border: .3mm solid var(--line); border-radius: 3.5mm; }
+      .match-row { display: grid; grid-template-columns: 31mm 1fr 20mm; min-height: 14.5mm; border-bottom: .3mm solid var(--line); }
+      .match-row:last-child { border-bottom: 0; }
+      .match-row > div { display: flex; align-items: center; padding: 3mm; }
+      .match-row > div + div { border-left: .3mm solid var(--line); }
+      .match-row.header { min-height: 9mm; color: #66717a; background: var(--paper-2); font-size: 6.5pt; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
+      .match-row .req { font-weight: 800; }
+      .match-row .response { color: #4f5962; font-size: 7.5pt; }
+      .match-row .fit { justify-content: center; }
+      .principle { min-height: 31mm; }
+      .principle h3 { margin: 1mm 0 1.5mm; font-size: 9.5pt; }
+      .principle p { color: var(--muted); font-size: 7.2pt; }
+
+      /* Inventory */
+      .inventory-summary { display: grid; grid-template-columns: 36mm 1fr; gap: 4mm; margin-bottom: 5mm; }
+      .big-number { display: grid; min-height: 33mm; place-items: center; border-radius: 3.5mm; color: var(--ink); background: var(--accent); }
+      .big-number strong { display: block; font-size: 28pt; line-height: .8; letter-spacing: -.07em; }
+      .big-number span { display: block; margin-top: 2mm; font-size: 6.5pt; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+      .inventory-note { padding: 4mm; border: .3mm solid var(--line); border-radius: 3.5mm; background: rgba(255,255,255,.55); }
+      .inventory-note p { margin: 0; color: var(--muted); font-size: 7.6pt; }
+      .module-list { border: .3mm solid var(--line); border-radius: 3.5mm; overflow: hidden; }
+      .module-head { display: flex; align-items: center; justify-content: space-between; padding: 2.8mm 3.5mm; color: var(--white); background: var(--ink); }
+      .module-head h3 { margin: 0; font-size: 8.5pt; }
+      .module-head span { color: var(--accent); font-size: 6.3pt; font-weight: 800; }
+      .screens { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 2.5mm 3mm 3mm; gap: 1.2mm 3mm; }
+      .screen-item { display: flex; gap: 2mm; align-items: baseline; color: #3f4951; font-size: 6.9pt; }
+      .screen-item b { min-width: 5mm; color: var(--accent-dark); font-size: 6.2pt; }
+      .inventory-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; }
+
+      /* Roles */
+      .role-strip { display: grid; grid-template-columns: repeat(6, 1fr); gap: 2mm; margin-bottom: 5mm; }
+      .role { min-height: 27mm; padding: 3mm; border: .3mm solid var(--line); border-radius: 3mm; background: rgba(255,255,255,.45); }
+      .role-code { display: grid; width: 7mm; height: 7mm; margin-bottom: 2.5mm; place-items: center; border-radius: 2mm; color: var(--ink); background: var(--accent); font-size: 6pt; font-weight: 900; }
+      .role h3 { margin-bottom: 1mm; font-size: 7.8pt; }
+      .role p { margin: 0; color: var(--muted); font-size: 6.3pt; line-height: 1.35; }
+      .matrix { overflow: hidden; border: .3mm solid var(--line); border-radius: 3.5mm; }
+      .matrix-row { display: grid; grid-template-columns: 44mm repeat(6, 1fr); border-bottom: .3mm solid var(--line); }
+      .matrix-row:last-child { border-bottom: 0; }
+      .matrix-row > div { min-height: 10mm; display: grid; place-items: center; padding: 1.5mm; border-left: .3mm solid var(--line); text-align: center; font-size: 6.5pt; }
+      .matrix-row > div:first-child { place-items: center start; border-left: 0; padding-left: 3mm; font-weight: 700; text-align: left; }
+      .matrix-head { color: #6a747d; background: var(--paper-2); font-weight: 800; }
+      .perm { display: inline-grid; min-width: 5mm; height: 5mm; padding: 0 .9mm; place-items: center; border-radius: 1.3mm; font-size: 5.7pt; font-weight: 900; }
+      .perm.v { color: var(--blue); background: #e3eafd; }
+      .perm.c { color: var(--green); background: #e2f2e8; }
+      .perm.a { color: #5b780b; background: #e8f6c8; }
+      .perm.m { color: var(--amber); background: #f6ead5; }
+      .perm.na { color: #8a9299; background: #e6e8e4; }
+      .legend { display: flex; flex-wrap: wrap; gap: 3mm; margin-top: 3mm; color: var(--muted); font-size: 6.5pt; }
+      .legend span { display: inline-flex; align-items: center; gap: 1.2mm; }
+
+      /* Workflow */
+      .flow { display: flex; align-items: stretch; gap: 1.5mm; margin: 4mm 0 5mm; }
+      .flow-step { position: relative; flex: 1; min-height: 24mm; padding: 3mm; border: .3mm solid var(--line-dark); border-radius: 2.8mm; background: rgba(255,255,255,.04); }
+      .flow-step + .flow-step::before { position: absolute; top: 10.5mm; left: -2.4mm; width: 3mm; height: 3mm; border-top: .5mm solid var(--accent); border-right: .5mm solid var(--accent); transform: rotate(45deg); content: ""; }
+      .flow-step b { display: block; margin-bottom: 1.5mm; color: var(--accent); font-size: 6.2pt; letter-spacing: .07em; }
+      .flow-step strong { display: block; margin-bottom: 1mm; color: var(--white); font-size: 7.8pt; }
+      .flow-step span { color: #8f9aa4; font-size: 5.9pt; line-height: 1.35; }
+      .mock-shell { border: .3mm solid var(--line-dark); border-radius: 3.5mm; background: #10151d; overflow: hidden; }
+      .mock-bar { display: flex; align-items: center; justify-content: space-between; height: 11mm; padding: 0 4mm; border-bottom: .3mm solid var(--line-dark); color: #88949e; font-size: 6.3pt; }
+      .mock-dots { display: flex; gap: 1.2mm; }
+      .mock-dots i { width: 1.6mm; height: 1.6mm; border-radius: 50%; background: #3b4550; }
+      .mock-body { display: grid; grid-template-columns: 33mm 1fr; min-height: 91mm; }
+      .mock-side { padding: 4mm 3mm; border-right: .3mm solid var(--line-dark); background: #0d1218; }
+      .mock-logo { display: flex; align-items: center; gap: 1.5mm; margin-bottom: 6mm; color: var(--white); font-size: 6.7pt; font-weight: 800; }
+      .mock-logo i { width: 5mm; height: 5mm; border-radius: 1.4mm; background: var(--accent); }
+      .mock-nav { margin-bottom: 1mm; padding: 2mm; border-radius: 1.5mm; color: #77828c; font-size: 6pt; }
+      .mock-nav.active { color: var(--white); background: rgba(200,255,61,.1); }
+      .mock-main { padding: 4mm; }
+      .mock-title { display: flex; align-items: flex-start; justify-content: space-between; gap: 3mm; margin-bottom: 4mm; }
+      .mock-title h3 { margin: 0; color: var(--white); font-size: 13pt; letter-spacing: -.04em; }
+      .mock-title p { margin: .8mm 0 0; color: #77838e; font-size: 6.2pt; }
+      .mock-button { padding: 2mm 3mm; border-radius: 1.8mm; color: var(--ink); background: var(--accent); font-size: 6.2pt; font-weight: 800; }
+      .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2mm; margin-bottom: 3mm; }
+      .metric { padding: 2.5mm; border: .3mm solid var(--line-dark); border-radius: 2mm; background: rgba(255,255,255,.03); }
+      .metric span { display: block; color: #7e8993; font-size: 5.6pt; }
+      .metric strong { display: block; margin-top: 1mm; color: var(--white); font-size: 11pt; }
+      .data-card { border: .3mm solid var(--line-dark); border-radius: 2.2mm; overflow: hidden; }
+      .data-row { display: grid; grid-template-columns: 1fr .78fr .8fr .55fr; align-items: center; min-height: 9mm; padding: 1.8mm 2.5mm; border-bottom: .3mm solid var(--line-dark); color: #b7c0c7; font-size: 5.8pt; }
+      .data-row:last-child { border-bottom: 0; }
+      .data-row.header { min-height: 7mm; color: #6f7b85; background: rgba(255,255,255,.025); font-size: 5.3pt; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+      .mini-status { justify-self: start; padding: 1mm 1.6mm; border-radius: 99mm; font-size: 5.1pt; font-weight: 800; }
+      .mini-status.green { color: #8fe1a4; background: rgba(52,154,89,.13); }
+      .mini-status.amber { color: #efc270; background: rgba(210,147,39,.12); }
+      .mini-status.red { color: #ff988f; background: rgba(211,69,62,.13); }
+      .exception-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5mm; margin-top: 4mm; }
+      .exception { min-height: 24mm; padding: 3mm; border: .3mm solid var(--line-dark); border-radius: 2.7mm; background: rgba(255,255,255,.025); }
+      .exception b { display: block; margin-bottom: 1mm; color: var(--accent); font-size: 6.2pt; }
+      .exception p { margin: 0; color: #9aa4ad; font-size: 6.2pt; line-height: 1.4; }
+
+      /* Sales & accounting */
+      .split-flow { display: grid; grid-template-columns: 1.1fr .9fr; gap: 4mm; }
+      .vertical-flow { border: .3mm solid var(--line); border-radius: 3.5mm; background: rgba(255,255,255,.48); padding: 4mm; }
+      .vstep { position: relative; display: grid; grid-template-columns: 8mm 1fr auto; gap: 3mm; align-items: center; min-height: 17mm; padding-bottom: 3mm; }
+      .vstep:last-child { padding-bottom: 0; }
+      .vstep:not(:last-child)::after { position: absolute; top: 10mm; bottom: 0; left: 3.7mm; width: .4mm; background: #bec5ba; content: ""; }
+      .vnum { z-index: 1; display: grid; width: 8mm; height: 8mm; place-items: center; border-radius: 50%; color: var(--ink); background: var(--accent); font-size: 6pt; font-weight: 900; }
+      .vstep strong { display: block; font-size: 8.1pt; }
+      .vstep small { display: block; margin-top: .7mm; color: var(--muted); font-size: 6.2pt; }
+      .vstep .owner { color: var(--muted); font-size: 5.8pt; font-weight: 700; text-transform: uppercase; }
+      .ledger { color: var(--white); background: var(--ink); border-radius: 3.5mm; padding: 4mm; }
+      .ledger h3 { margin-bottom: 3mm; font-size: 10.5pt; }
+      .ledger-row { display: grid; grid-template-columns: 1fr auto; gap: 3mm; padding: 3mm 0; border-bottom: .3mm solid var(--line-dark); }
+      .ledger-row:last-child { border-bottom: 0; }
+      .ledger-row b { display: block; font-size: 7.2pt; }
+      .ledger-row small { display: block; margin-top: .6mm; color: #84909a; font-size: 6pt; }
+      .ledger-row strong { color: var(--accent); font-size: 8pt; }
+      .control-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5mm; margin-top: 5mm; }
+      .control { min-height: 31mm; padding: 3mm; border: .3mm solid var(--line); border-radius: 2.8mm; background: rgba(255,255,255,.5); }
+      .control i { display: grid; width: 7mm; height: 7mm; margin-bottom: 2mm; place-items: center; border-radius: 1.8mm; color: var(--ink); background: var(--accent); font-style: normal; font-size: 5.7pt; font-weight: 900; }
+      .control h3 { margin-bottom: 1mm; font-size: 7.7pt; }
+      .control p { margin: 0; color: var(--muted); font-size: 6.1pt; }
+
+      /* System */
+      .tokens { display: grid; grid-template-columns: 1.1fr .9fr; gap: 4mm; }
+      .palette { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2mm; }
+      .swatch { overflow: hidden; border: .3mm solid var(--line); border-radius: 2.5mm; }
+      .swatch-color { height: 21mm; }
+      .swatch-meta { padding: 2.2mm; background: rgba(255,255,255,.55); }
+      .swatch-meta b { display: block; font-size: 6.5pt; }
+      .swatch-meta span { color: var(--muted); font-size: 5.5pt; }
+      .type-card { padding: 4mm; border: .3mm solid var(--line); border-radius: 3.5mm; background: rgba(255,255,255,.5); }
+      .type-display { margin-bottom: 2mm; font-size: 24pt; font-weight: 800; letter-spacing: -.07em; line-height: .92; }
+      .type-body { color: var(--muted); font-size: 8pt; }
+      .component-board { margin-top: 5mm; padding: 4mm; border: .3mm solid var(--line); border-radius: 3.5mm; background: #fff; }
+      .component-row { display: grid; grid-template-columns: 28mm 1fr; gap: 4mm; align-items: center; min-height: 15mm; border-bottom: .3mm solid #e3e6df; }
+      .component-row:last-child { border-bottom: 0; }
+      .component-label { color: var(--muted); font-size: 6.2pt; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+      .component-demo { display: flex; flex-wrap: wrap; align-items: center; gap: 2mm; }
+      .ui-button { padding: 2.2mm 3.2mm; border-radius: 1.8mm; font-size: 6.3pt; font-weight: 800; }
+      .ui-button.primary { color: var(--ink); background: var(--accent); }
+      .ui-button.secondary { border: .3mm solid var(--line); background: var(--paper); }
+      .ui-button.danger { color: var(--red); background: #f8e1df; }
+      .input { min-width: 45mm; padding: 2.4mm 3mm; border: .3mm solid #b9c0b7; border-radius: 1.8mm; color: #68717a; font-size: 6.4pt; }
+      .state-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5mm; margin-top: 4mm; }
+      .state { min-height: 28mm; padding: 3mm; border: .3mm solid var(--line); border-radius: 2.8mm; background: rgba(255,255,255,.45); }
+      .state b { display: block; margin-bottom: 1mm; font-size: 7.4pt; }
+      .state p { margin: 0; color: var(--muted); font-size: 5.9pt; }
+
+      /* Delivery */
+      .timeline { position: relative; margin-top: 4mm; }
+      .phase { display: grid; grid-template-columns: 25mm 1fr 31mm; gap: 4mm; min-height: 32mm; padding: 3.7mm 0; border-top: .3mm solid var(--line); }
+      .phase:last-child { border-bottom: .3mm solid var(--line); }
+      .phase-no { color: var(--accent-dark); font-size: 6.5pt; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+      .phase h3 { margin-bottom: 1.2mm; font-size: 10pt; }
+      .phase p { margin: 0; color: var(--muted); font-size: 6.8pt; }
+      .phase-output { color: #4d575f; font-size: 6.1pt; line-height: 1.5; }
+      .phase-output b { display: block; margin-bottom: 1mm; color: var(--ink); font-size: 6pt; letter-spacing: .08em; text-transform: uppercase; }
+      .delivery-note { display: grid; grid-template-columns: 1.35fr .65fr; gap: 3mm; margin-top: 5mm; }
+      .scope-note { padding: 4mm; border-radius: 3.5mm; color: var(--white); background: var(--ink); }
+      .scope-note h3 { color: var(--accent); font-size: 9.3pt; }
+      .scope-note p { margin: 0; color: #a8b1b8; font-size: 6.8pt; }
+      .meeting-note { padding: 4mm; border: .3mm solid rgba(113,157,0,.42); border-radius: 3.5mm; background: rgba(200,255,61,.18); }
+      .meeting-note h3 { font-size: 9.3pt; }
+      .meeting-note p { margin: 0; color: #566140; font-size: 6.8pt; }
+      .delivery .phase { min-height: 24mm; padding: 2.5mm 0; }
+      .delivery .phase p { line-height: 1.35; }
+      .delivery .delivery-note { margin-top: 3mm; }
+      .delivery .delivery-note + .grid-4 { margin-top: 3mm !important; }
+      .delivery .grid-4 .card { min-height: 23mm; padding: 3mm; }
+
+      /* Closing */
+      .closing .page-inner { padding: 15mm 16mm; }
+      .closing-grid { display: grid; grid-template-columns: 1.12fr .88fr; gap: 10mm; align-items: start; margin-top: 9mm; }
+      .closing h1 { margin: 2mm 0 5mm; font-size: 35pt; line-height: .94; letter-spacing: -.065em; }
+      .closing h1 em { color: var(--accent); font-style: normal; }
+      .closing-lede { max-width: 105mm; color: #b9c1c7; font-size: 10.5pt; }
+      .question { display: grid; grid-template-columns: 8mm 1fr; gap: 3mm; padding: 4mm 0; border-top: .3mm solid var(--line-dark); }
+      .question:last-child { border-bottom: .3mm solid var(--line-dark); }
+      .question-no { display: grid; width: 7mm; height: 7mm; place-items: center; border-radius: 50%; color: var(--ink); background: var(--accent); font-size: 6.3pt; font-weight: 900; }
+      .question strong { display: block; color: var(--white); font-size: 8.5pt; }
+      .question p { margin: 1mm 0 0; color: #919ca5; font-size: 6.8pt; }
+      .contact-card { border: .3mm solid rgba(200,255,61,.35); border-radius: 4mm; background: rgba(200,255,61,.07); padding: 5mm; }
+      .contact-card img { width: 27mm; height: 27mm; margin-bottom: 5mm; border-radius: 50%; object-fit: cover; object-position: 50% 20%; border: .6mm solid var(--accent); }
+      .contact-card h2 { margin-bottom: 1mm; font-size: 15pt; letter-spacing: -.04em; }
+      .contact-card .role-line { color: var(--accent); font-size: 7pt; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+      .contact-item { margin-top: 4mm; padding-top: 3mm; border-top: .3mm solid var(--line-dark); }
+      .contact-item b { display: block; margin-bottom: 1mm; color: #7f8992; font-size: 5.8pt; letter-spacing: .1em; text-transform: uppercase; }
+      .contact-item span { color: var(--white); font-size: 7.5pt; overflow-wrap: anywhere; }
+      .closing-note { margin-top: 9mm; padding: 4mm; border-left: 1mm solid var(--accent); color: #929ca5; background: rgba(255,255,255,.035); font-size: 6.6pt; }
+
+      @media print {
+        @page { size: A4; margin: 0; }
+        body { background: transparent; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        .page { margin: 0; box-shadow: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 01 / Cover -->
+    <section class="page dark cover" aria-label="Cover">
+      <div class="page-inner">
+        <div class="cover-top">
+          <div class="brand"><span class="brand-mark">HX</span> HAURUX ERP Concept</div>
+          <div class="cover-ref">Proposal · ERP Web App · 2026</div>
+        </div>
+
+        <div class="cover-main">
+          <div>
+            <span class="eyebrow">UI/UX Portfolio &amp; Project Approach</span>
+            <h1>Complex ERP,<br />made clear and <em>ready to work.</em></h1>
+            <p class="cover-lede">
+              A workflow-first design proposal for a web ERP covering users, sales,
+              procurement, inventory, and accounting. Built around the decisions each role
+              needs to make every day.
+            </p>
+            <div class="pill-row" style="margin-top: 7mm">
+              <span class="pill accent">User &amp; Roles</span>
+              <span class="pill accent">Sales</span>
+              <span class="pill accent">PR / PO</span>
+              <span class="pill accent">IMS / Inventory</span>
+              <span class="pill accent">Accounting</span>
+            </div>
+          </div>
+          <aside class="portrait-wrap">
+            <div class="portrait-frame"><img src="assets/avatar.png" alt="HAURUX ERP Concept representative" /></div>
+            <div class="portrait-label">
+              <strong>HAURUX ERP Concept</strong>
+              UI/UX &amp; Product Systems
+            </div>
+          </aside>
+        </div>
+
+        <div class="cover-stats">
+          <div class="cover-stat"><strong>37</strong><span>mapped web screens for the proposed ERP scope</span></div>
+          <div class="cover-stat"><strong>5</strong><span>core business modules connected end to end</span></div>
+          <div class="cover-stat"><strong>1</strong><span>reusable design system for consistent handoff</span></div>
+        </div>
+
+        <div class="cover-scope">
+          <div class="cover-scope-label">Prepared for</div>
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:10mm">
+            <div>
+              <div style="font-size:15pt;font-weight:800;letter-spacing:-.035em">UI/UX Design for ERP Web Application</div>
+              <div style="margin-top:1.5mm;color:#8f99a2;font-size:7pt">Self-initiated concept study · Flexible online collaboration</div>
+            </div>
+            <span class="badge demo">CONCEPT / DEMO</span>
+          </div>
+        </div>
+
+        <div class="cover-disclosure">
+          <span>© 2026 Zhenghao Zhang</span>
+          <span>github.com/zhang-zhenghao</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 / Brief -->
+    <section class="page" aria-label="Understanding the brief">
+      <div class="page-inner">
+        <header class="doc-head">
+          <div class="brand"><span class="brand-mark">HX</span> HAURUX ERP Concept</div>
+          <span class="doc-kicker">01 · Requirement Fit</span>
+        </header>
+
+        <span class="eyebrow">Understanding the work behind every screen</span>
+        <h1 class="title">Your brief, translated into a usable ERP experience.</h1>
+        <p class="subtitle">
+          The project calls for the complete UI/UX of a web ERP, not isolated visuals. The response below turns each requirement into a concrete design outcome.
+        </p>
+
+        <div class="match-table">
+          <div class="match-row header"><div>Brief asks</div><div>Design response</div><div>Fit</div></div>
+          <div class="match-row"><div class="req">All web-app pages</div><div class="response">A 37-screen inventory with shared patterns for list, detail, create/edit, approval, and reporting.</div><div class="fit"><span class="badge green">Mapped</span></div></div>
+          <div class="match-row"><div class="req">User module</div><div class="response">User directory, profiles, role-based access, permission review, and auditable activity.</div><div class="fit"><span class="badge green">Covered</span></div></div>
+          <div class="match-row"><div class="req">Sales module</div><div class="response">Customer → quotation → order → fulfilment → invoice, with status and exception handling.</div><div class="fit"><span class="badge green">Covered</span></div></div>
+          <div class="match-row"><div class="req">PR / PO</div><div class="response">Purchase request, approval, vendor comparison, PO, receiving, and three-way-match readiness.</div><div class="fit"><span class="badge green">Covered</span></div></div>
+          <div class="match-row"><div class="req">IMS / Inventory</div><div class="response">Item master, warehouse stock, transfers, adjustments, receiving, and low-stock signals.</div><div class="fit"><span class="badge green">Covered</span></div></div>
+          <div class="match-row"><div class="req">Accounting</div><div class="response">AP, AR, invoice status, journals, reconciliation, and traceable source-document links.</div><div class="fit"><span class="badge green">Covered</span></div></div>
+          <div class="match-row"><div class="req">Flexible meetings</div><div class="response">Async-first checkpoints plus scheduled online review windows during working hours.</div><div class="fit"><span class="badge blue">Ready</span></div></div>
+        </div>
+
+        <div class="grid-3" style="margin-top:5mm">
+          <div class="card principle"><span class="index">01</span><h3>Workflow first</h3><p>Each screen has a role, decision, next action, and recovery path, so the experience stays operational, not decorative.</p></div>
+          <div class="card principle"><span class="index">02</span><h3>Dense, still readable</h3><p>ERP data is structured through hierarchy, progressive disclosure, saved filters, and consistent table patterns.</p></div>
+          <div class="card principle"><span class="index">03</span><h3>Safe by default</h3><p>Permissions, approvals, validation, audit trails, and destructive-action safeguards are designed from the start.</p></div>
+        </div>
+
+        <div class="card" style="margin-top:4mm;padding:3.2mm 4mm;display:grid;grid-template-columns:30mm 1fr;gap:4mm;align-items:center;background:var(--paper-2)">
+          <strong style="font-size:7pt;text-transform:uppercase;letter-spacing:.08em">Scope assumption</strong>
+          <span class="micro">Desktop-first responsive web application. Final entities, fields, approval levels, tax rules, and integrations are validated in discovery before high-fidelity production.</span>
+        </div>
+
+        <footer class="page-foot"><span class="confidential">Project-specific design proposal</span><span class="page-no">02 / 09</span></footer>
+      </div>
+    </section>
+
+    <!-- 03 / 37 Screens -->
+    <section class="page" aria-label="Screen inventory">
+      <div class="page-inner">
+        <header class="doc-head">
+          <div class="brand"><span class="brand-mark">HX</span> HAURUX ERP Concept</div>
+          <span class="doc-kicker">02 · Scope Map</span>
+        </header>
+
+        <div class="inventory-summary">
+          <div class="big-number"><div><strong>37</strong><span>screen map</span></div></div>
+          <div class="inventory-note">
+            <span class="eyebrow" style="margin-bottom:2mm">Proposed information architecture</span>
+            <h1 style="margin-bottom:2mm;font-size:19pt;letter-spacing:-.045em">Complete enough to estimate. Flexible enough to validate.</h1>
+            <p>This inventory defines the first design baseline. Shared drawers, modals, filters, import/export, loading, empty, error, and permission states are included as component variants, not counted as extra screens.</p>
+          </div>
+        </div>
+
+        <div class="inventory-grid">
+          <article class="module-list">
+            <div class="module-head"><h3>Foundation &amp; Navigation</h3><span>05 screens</span></div>
+            <div class="screens">
+              <div class="screen-item"><b>01</b><span>Sign in &amp; account recovery</span></div>
+              <div class="screen-item"><b>02</b><span>My profile &amp; preferences</span></div>
+              <div class="screen-item"><b>03</b><span>Global search &amp; quick actions</span></div>
+              <div class="screen-item"><b>04</b><span>Notification center</span></div>
+              <div class="screen-item"><b>05</b><span>Activity &amp; audit log</span></div>
+            </div>
+          </article>
+
+          <article class="module-list">
+            <div class="module-head"><h3>User &amp; Access</h3><span>05 screens</span></div>
+            <div class="screens">
+              <div class="screen-item"><b>06</b><span>User directory</span></div>
+              <div class="screen-item"><b>07</b><span>Create / edit user</span></div>
+              <div class="screen-item"><b>08</b><span>User detail &amp; activity</span></div>
+              <div class="screen-item"><b>09</b><span>Roles &amp; permissions</span></div>
+              <div class="screen-item"><b>10</b><span>Access review queue</span></div>
+            </div>
+          </article>
+
+          <article class="module-list">
+            <div class="module-head"><h3>Sales</h3><span>08 screens</span></div>
+            <div class="screens">
+              <div class="screen-item"><b>11</b><span>Sales dashboard</span></div>
+              <div class="screen-item"><b>12</b><span>Customer list</span></div>
+              <div class="screen-item"><b>13</b><span>Customer detail</span></div>
+              <div class="screen-item"><b>14</b><span>Quotation list</span></div>
+              <div class="screen-item"><b>15</b><span>Create / edit quotation</span></div>
+              <div class="screen-item"><b>16</b><span>Sales order list</span></div>
+              <div class="screen-item"><b>17</b><span>Sales order detail</span></div>
+              <div class="screen-item"><b>18</b><span>Fulfilment &amp; delivery</span></div>
+            </div>
+          </article>
+
+          <article class="module-list">
+            <div class="module-head"><h3>PR / PO</h3><span>08 screens</span></div>
+            <div class="screens">
+              <div class="screen-item"><b>19</b><span>Purchase request list</span></div>
+              <div class="screen-item"><b>20</b><span>Create / edit PR</span></div>
+              <div class="screen-item"><b>21</b><span>PR detail &amp; approval</span></div>
+              <div class="screen-item"><b>22</b><span>Request for quotation</span></div>
+              <div class="screen-item"><b>23</b><span>Vendor comparison</span></div>
+              <div class="screen-item"><b>24</b><span>Purchase order list</span></div>
+              <div class="screen-item"><b>25</b><span>Purchase order detail</span></div>
+              <div class="screen-item"><b>26</b><span>Goods receiving</span></div>
+            </div>
+          </article>
+
+          <article class="module-list">
+            <div class="module-head"><h3>IMS / Inventory</h3><span>06 screens</span></div>
+            <div class="screens">
+              <div class="screen-item"><b>27</b><span>Inventory dashboard</span></div>
+              <div class="screen-item"><b>28</b><span>Item master list</span></div>
+              <div class="screen-item"><b>29</b><span>Item detail &amp; stock card</span></div>
+              <div class="screen-item"><b>30</b><span>Warehouse &amp; bin view</span></div>
+              <div class="screen-item"><b>31</b><span>Stock transfer</span></div>
+              <div class="screen-item"><b>32</b><span>Adjustment &amp; cycle count</span></div>
+            </div>
+          </article>
+
+          <article class="module-list">
+            <div class="module-head"><h3>Accounting</h3><span>05 screens</span></div>
+            <div class="screens">
+              <div class="screen-item"><b>33</b><span>Accounting dashboard</span></div>
+              <div class="screen-item"><b>34</b><span>Accounts payable / bills</span></div>
+              <div class="screen-item"><b>35</b><span>Accounts receivable / invoices</span></div>
+              <div class="screen-item"><b>36</b><span>Journal entries</span></div>
+              <div class="screen-item"><b>37</b><span>Bank reconciliation</span></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="card" style="margin-top:4mm;padding:3.2mm 4mm;display:flex;align-items:center;justify-content:space-between;gap:5mm;background:rgba(200,255,61,.15);border-color:rgba(113,157,0,.38)">
+          <div><strong style="display:block;font-size:8pt">Definition of “screen”</strong><span class="micro">A distinct job-to-be-done route or workspace, not every modal or component state.</span></div>
+          <span class="badge demo">CONCEPT SCOPE</span>
+        </div>
+
+        <footer class="page-foot"><span class="confidential">Screen count validated: 05 + 05 + 08 + 08 + 06 + 05</span><span class="page-no">03 / 09</span></footer>
+      </div>
+    </section>
+
+    <!-- 04 / Permissions -->
+    <section class="page" aria-label="Role and permission matrix">
+      <div class="page-inner">
+        <header class="doc-head">
+          <div class="brand"><span class="brand-mark">HX</span> HAURUX ERP Concept</div>
+          <span class="doc-kicker">03 · Roles &amp; Controls</span>
+        </header>
+
+        <span class="eyebrow">Role-based experience</span>
+        <h1 class="title">The right action, for the right person.</h1>
+        <p class="subtitle">ERP usability depends on what is hidden, available, or approval-gated. This concept applies least-privilege access while keeping everyday work fast.</p>
+
+        <div class="role-strip">
+          <div class="role"><span class="role-code">AD</span><h3>Admin</h3><p>Users, roles, master data, audit, system settings.</p></div>
+          <div class="role"><span class="role-code">SA</span><h3>Sales</h3><p>Customers, quotations, orders, fulfilment visibility.</p></div>
+          <div class="role"><span class="role-code">PR</span><h3>Procurement</h3><p>PR review, RFQ, vendors, PO preparation.</p></div>
+          <div class="role"><span class="role-code">WH</span><h3>Warehouse</h3><p>Receiving, stock, movement, cycle count.</p></div>
+          <div class="role"><span class="role-code">FI</span><h3>Finance</h3><p>Bills, invoices, journals, reconciliation.</p></div>
+          <div class="role"><span class="role-code">AP</span><h3>Approver</h3><p>Threshold-based review, approve, reject, delegate.</p></div>
+        </div>
+
+        <div class="matrix" aria-label="Permission matrix">
+          <div class="matrix-row matrix-head"><div>Capability</div><div>AD</div><div>SA</div><div>PR</div><div>WH</div><div>FI</div><div>AP</div></div>
+          <div class="matrix-row"><div>User &amp; role management</div><div><span class="perm m">M</span></div><div><span class="perm na">N/A</span></div><div><span class="perm na">N/A</span></div><div><span class="perm na">N/A</span></div><div><span class="perm v">V</span></div><div><span class="perm v">V</span></div></div>
+          <div class="matrix-row"><div>Customer &amp; quotation</div><div><span class="perm m">M</span></div><div><span class="perm c">C</span></div><div><span class="perm v">V</span></div><div><span class="perm v">V</span></div><div><span class="perm v">V</span></div><div><span class="perm a">A</span></div></div>
+          <div class="matrix-row"><div>Sales order &amp; fulfilment</div><div><span class="perm m">M</span></div><div><span class="perm c">C</span></div><div><span class="perm v">V</span></div><div><span class="perm m">M</span></div><div><span class="perm v">V</span></div><div><span class="perm a">A</span></div></div>
+          <div class="matrix-row"><div>Purchase request</div><div><span class="perm m">M</span></div><div><span class="perm c">C</span></div><div><span class="perm c">C</span></div><div><span class="perm c">C</span></div><div><span class="perm v">V</span></div><div><span class="perm a">A</span></div></div>
+          <div class="matrix-row"><div>RFQ, vendor &amp; purchase order</div><div><span class="perm m">M</span></div><div><span class="perm v">V</span></div><div><span class="perm m">M</span></div><div><span class="perm v">V</span></div><div><span class="perm v">V</span></div><div><span class="perm a">A</span></div></div>
+          <div class="matrix-row"><div>Goods receiving</div><div><span class="perm m">M</span></div><div><span class="perm v">V</span></div><div><span class="perm v">V</span></div><div><span class="perm m">M</span></div><div><span class="perm v">V</span></div><div><span class="perm a">A</span></div></div>
+          <div class="matrix-row"><div>Stock transfer &amp; adjustment</div><div><span class="perm m">M</span></div><div><span class="perm v">V</span></div><div><span class="perm v">V</span></div><div><span class="perm c">C</span></div><div><span class="perm v">V</span></div><div><span class="perm a">A</span></div></div>
+          <div class="matrix-row"><div>Bills, invoices &amp; payments</div><div><span class="perm m">M</span></div><div><span class="perm v">V</span></div><div><span class="perm v">V</span></div><div><span class="perm v">V</span></div><div><span class="perm m">M</span></div><div><span class="perm a">A</span></div></div>
+          <div class="matrix-row"><div>Journal &amp; reconciliation</div><div><span class="perm m">M</span></div><div><span class="perm na">N/A</span></div><div><span class="perm na">N/A</span></div><div><span class="perm na">N/A</span></div><div><span class="perm m">M</span></div><div><span class="perm a">A</span></div></div>
+          <div class="matrix-row"><div>Audit log &amp; export</div><div><span class="perm m">M</span></div><div><span class="perm v">V</span></div><div><span class="perm v">V</span></div><div><span class="perm v">V</span></div><div><span class="perm m">M</span></div><div><span class="perm v">V</span></div></div>
+        </div>
+
+        <div class="legend">
+          <span><i class="perm v">V</i> View</span><span><i class="perm c">C</i> Create / process</span><span><i class="perm a">A</i> Approve</span><span><i class="perm m">M</i> Manage</span><span><i class="perm na">N/A</i> No access</span>
+        </div>
+
+        <div class="grid-3" style="margin-top:5mm">
+          <div class="card"><h3>Approval thresholds</h3><p class="micro">Route by amount, department, warehouse, or risk. Show due time, SLA, and fallback approver.</p></div>
+          <div class="card"><h3>Action-level protection</h3><p class="micro">Separate “view” from “post”, “approve”, “void”, “export”, and “adjust”, not only page access.</p></div>
+          <div class="card"><h3>Full traceability</h3><p class="micro">Record actor, timestamp, previous value, reason, attachment, and linked source document.</p></div>
+        </div>
+
+        <footer class="page-foot"><span class="confidential">Illustrative matrix · final policy validated in discovery</span><span class="page-no">04 / 09</span></footer>
+      </div>
+    </section>
+
+    <!-- 05 / Procurement -->
+    <section class="page dark" aria-label="Procurement and inventory workflow">
+      <div class="page-inner">
+        <header class="doc-head">
+          <div class="brand"><span class="brand-mark">HX</span> HAURUX ERP Concept</div>
+          <span class="doc-kicker">04 · Core Flow A</span>
+        </header>
+
+        <div style="display:flex;justify-content:space-between;gap:8mm;align-items:end">
+          <div>
+            <span class="eyebrow">Procure to stock</span>
+            <h1 class="title" style="max-width:130mm">PR → PO → Receive → Inventory</h1>
+          </div>
+          <span class="badge demo">CONCEPT / DEMO</span>
+        </div>
+        <p class="subtitle">One linked chain of evidence, from business need to physical stock and payable readiness.</p>
+
+        <div class="flow">
+          <div class="flow-step"><b>01</b><strong>Purchase Request</strong><span>Requester adds purpose, item, quantity, cost center.</span></div>
+          <div class="flow-step"><b>02</b><strong>Approval</strong><span>Amount and policy determine the approval route.</span></div>
+          <div class="flow-step"><b>03</b><strong>RFQ &amp; Compare</strong><span>Normalize vendor terms, lead time, price, tax.</span></div>
+          <div class="flow-step"><b>04</b><strong>Purchase Order</strong><span>Approved selection becomes a controlled PO.</span></div>
+          <div class="flow-step"><b>05</b><strong>Goods Receipt</strong><span>Warehouse records quantity, lot, variance, proof.</span></div>
+          <div class="flow-step"><b>06</b><strong>Stock &amp; Match</strong><span>Ledger updates; Finance checks PO / GR / invoice.</span></div>
+        </div>
+
+        <div class="mock-shell">
+          <div class="mock-bar"><div class="mock-dots"><i></i><i></i><i></i></div><span>ERP / Procurement / Purchase Requests</span><span>Demo workspace</span></div>
+          <div class="mock-body">
+            <aside class="mock-side">
+              <div class="mock-logo"><i></i> OPERATIONS</div>
+              <div class="mock-nav">Overview</div>
+              <div class="mock-nav active">Purchase Requests</div>
+              <div class="mock-nav">Vendor Quotes</div>
+              <div class="mock-nav">Purchase Orders</div>
+              <div class="mock-nav">Goods Receiving</div>
+              <div class="mock-nav">Inventory</div>
+              <div class="mock-nav">Audit Log</div>
+            </aside>
+            <main class="mock-main">
+              <div class="mock-title"><div><h3>Purchase Requests</h3><p>Review demand, policy, and approval readiness.</p></div><span class="mock-button">+ New request</span></div>
+              <div class="metrics">
+                <div class="metric"><span>Awaiting review</span><strong>12</strong></div>
+                <div class="metric"><span>Due today</span><strong>04</strong></div>
+                <div class="metric"><span>Over budget</span><strong>02</strong></div>
+                <div class="metric"><span>Avg. cycle</span><strong>1.8d</strong></div>
+              </div>
+              <div class="data-card">
+                <div class="data-row header"><span>Request</span><span>Department</span><span>Amount</span><span>Status</span></div>
+                <div class="data-row"><span><b>PR-2026-0184</b><br><small>Barcode scanners · 8 units</small></span><span>Warehouse</span><span>Rp 18,400,000</span><span class="mini-status amber">Needs review</span></div>
+                <div class="data-row"><span><b>PR-2026-0183</b><br><small>Packing materials · monthly</small></span><span>Operations</span><span>Rp 6,750,000</span><span class="mini-status green">Approved</span></div>
+                <div class="data-row"><span><b>PR-2026-0182</b><br><small>Replacement laptop</small></span><span>Finance</span><span>Rp 15,900,000</span><span class="mini-status red">Budget flag</span></div>
+                <div class="data-row"><span><b>PR-2026-0181</b><br><small>Safety equipment · site B</small></span><span>Facilities</span><span>Rp 9,200,000</span><span class="mini-status amber">Waiting</span></div>
+              </div>
+            </main>
+          </div>
+        </div>
+
+        <div class="exception-grid">
+          <div class="exception"><b>Partial receipt</b><p>Track received, pending, rejected, and backordered quantities without losing the original PO context.</p></div>
+          <div class="exception"><b>Price / quantity variance</b><p>Explain mismatch at line level and route only the variance for approval, not the whole transaction.</p></div>
+          <div class="exception"><b>Low-stock signal</b><p>Connect reorder suggestions to open PRs and POs to prevent duplicate purchasing.</p></div>
+        </div>
+
+        <footer class="page-foot"><span class="confidential">Illustrative interface · synthetic data only</span><span class="page-no">05 / 09</span></footer>
+      </div>
+    </section>
+
+    <!-- 06 / Sales & accounting -->
+    <section class="page" aria-label="Sales and accounting workflow">
+      <div class="page-inner">
+        <header class="doc-head">
+          <div class="brand"><span class="brand-mark">HX</span> HAURUX ERP Concept</div>
+          <span class="doc-kicker">05 · Core Flow B</span>
+        </header>
+
+        <span class="eyebrow">Order to cash</span>
+        <h1 class="title">Sales, fulfilment, and finance in one traceable flow.</h1>
+        <p class="subtitle">Users see the commercial promise, physical fulfilment, and financial outcome as one connected record without re-entering the same data.</p>
+
+        <div class="split-flow">
+          <div class="vertical-flow">
+            <div class="vstep"><span class="vnum">1</span><div><strong>Customer &amp; quotation</strong><small>Price list, discount guardrail, validity, tax, and attachments.</small></div><span class="owner">Sales</span></div>
+            <div class="vstep"><span class="vnum">2</span><div><strong>Sales order confirmation</strong><small>Availability, credit limit, promised date, and approval exceptions.</small></div><span class="owner">Sales + Approver</span></div>
+            <div class="vstep"><span class="vnum">3</span><div><strong>Pick, pack &amp; dispatch</strong><small>Reservation, partial fulfilment, serial / lot, proof of delivery.</small></div><span class="owner">Warehouse</span></div>
+            <div class="vstep"><span class="vnum">4</span><div><strong>Invoice generation</strong><small>Generate from delivered quantity, payment terms, and source documents.</small></div><span class="owner">Finance</span></div>
+            <div class="vstep"><span class="vnum">5</span><div><strong>Payment &amp; reconciliation</strong><small>Match bank activity, handle partial payment, close balance.</small></div><span class="owner">Finance</span></div>
+          </div>
+
+          <aside class="ledger">
+            <span class="eyebrow" style="margin-bottom:3mm">Accounting cockpit</span>
+            <h3>What Finance needs at a glance</h3>
+            <div class="ledger-row"><div><b>Accounts receivable</b><small>12 invoices · 3 overdue</small></div><strong>Rp 284.6m</strong></div>
+            <div class="ledger-row"><div><b>Accounts payable</b><small>8 bills · 2 due this week</small></div><strong>Rp 119.2m</strong></div>
+            <div class="ledger-row"><div><b>Unmatched bank lines</b><small>Requires reconciliation</small></div><strong>07</strong></div>
+            <div class="ledger-row"><div><b>Draft journals</b><small>Awaiting review / posting</small></div><strong>04</strong></div>
+            <div style="margin-top:4mm;padding:3mm;border:.3mm solid var(--line-dark);border-radius:2.5mm;background:rgba(255,255,255,.035)">
+              <div style="display:flex;justify-content:space-between;color:#8c98a2;font-size:6pt"><span>Source-document completeness</span><b style="color:var(--accent)">94%</b></div>
+              <div style="height:2mm;margin-top:2mm;border-radius:9mm;background:#29323c;overflow:hidden"><div style="width:94%;height:100%;background:var(--accent)"></div></div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="control-grid">
+          <div class="control"><i>01</i><h3>Credit &amp; discount controls</h3><p>Surface limit, exposure, margin, and approval reason before confirming the order.</p></div>
+          <div class="control"><i>02</i><h3>Promise vs. availability</h3><p>Show available-to-promise by warehouse, substitute, and expected replenishment date.</p></div>
+          <div class="control"><i>03</i><h3>Source-linked accounting</h3><p>Every invoice and journal links back to order, delivery, receipt, or approved adjustment.</p></div>
+          <div class="control"><i>04</i><h3>Exception-driven worklist</h3><p>Prioritize overdue, mismatched, blocked, duplicated, and unposted items instead of static reports.</p></div>
+        </div>
+
+        <div class="grid-3" style="margin-top:5mm">
+          <div class="card"><span class="badge amber">Partial fulfilment</span><p class="micro" style="margin-top:2mm">Split delivery while preserving remaining committed quantity and customer visibility.</p></div>
+          <div class="card"><span class="badge red">Credit hold</span><p class="micro" style="margin-top:2mm">Explain the blocking rule and present request-for-override as a controlled action.</p></div>
+          <div class="card"><span class="badge blue">Payment matching</span><p class="micro" style="margin-top:2mm">Recommend matches with confidence and keep a human confirmation trail.</p></div>
+        </div>
+
+        <footer class="page-foot"><span class="confidential">Illustrative workflow · rules require stakeholder validation</span><span class="page-no">06 / 09</span></footer>
+      </div>
+    </section>
+
+    <!-- 07 / Design system -->
+    <section class="page" aria-label="Design system">
+      <div class="page-inner">
+        <header class="doc-head">
+          <div class="brand"><span class="brand-mark">HX</span> HAURUX ERP Concept</div>
+          <span class="doc-kicker">06 · Design System</span>
+        </header>
+
+        <span class="eyebrow">Consistency at ERP scale</span>
+        <h1 class="title">A system, not 37 disconnected mockups.</h1>
+        <p class="subtitle">Reusable tokens and interaction patterns reduce design debt, speed development, and make new ERP modules feel familiar from day one.</p>
+
+        <div class="tokens">
+          <div>
+            <h3 style="margin-bottom:3mm;font-size:8pt;text-transform:uppercase;letter-spacing:.08em">Core palette</h3>
+            <div class="palette">
+              <div class="swatch"><div class="swatch-color" style="background:#0b0d12"></div><div class="swatch-meta"><b>Ink</b><span>#0B0D12</span></div></div>
+              <div class="swatch"><div class="swatch-color" style="background:#c8ff3d"></div><div class="swatch-meta"><b>Action</b><span>#C8FF3D</span></div></div>
+              <div class="swatch"><div class="swatch-color" style="background:#f4f5ef"></div><div class="swatch-meta"><b>Canvas</b><span>#F4F5EF</span></div></div>
+              <div class="swatch"><div class="swatch-color" style="background:#237a4c"></div><div class="swatch-meta"><b>Success</b><span>#237A4C</span></div></div>
+              <div class="swatch"><div class="swatch-color" style="background:#b6433c"></div><div class="swatch-meta"><b>Critical</b><span>#B6433C</span></div></div>
+            </div>
+          </div>
+          <div class="type-card">
+            <span class="doc-kicker">Typography</span>
+            <div class="type-display">Readable<br>by default.</div>
+            <div class="type-body">Clear numeric alignment, stable hierarchy, compact density, and minimum readable sizes for operational screens.</div>
+            <div style="margin-top:4mm;display:flex;justify-content:space-between;color:var(--muted);font-size:6pt"><span>Display / 40</span><span>Heading / 24</span><span>Body / 14</span><span>Meta / 12</span></div>
+          </div>
+        </div>
+
+        <div class="component-board">
+          <div class="component-row"><div class="component-label">Actions</div><div class="component-demo"><span class="ui-button primary">Create order</span><span class="ui-button secondary">Save draft</span><span class="ui-button secondary">Export</span><span class="ui-button danger">Void document</span></div></div>
+          <div class="component-row"><div class="component-label">Form fields</div><div class="component-demo"><span class="input">Search customer or order…</span><span class="input">Warehouse: Jakarta ▾</span><span class="input">Date range ▾</span></div></div>
+          <div class="component-row"><div class="component-label">Status</div><div class="component-demo"><span class="badge green">Approved</span><span class="badge blue">In progress</span><span class="badge amber">Needs review</span><span class="badge red">Blocked</span></div></div>
+          <div class="component-row"><div class="component-label">Table behavior</div><div class="component-demo"><span class="pill">Saved views</span><span class="pill">Column controls</span><span class="pill">Bulk actions</span><span class="pill">Sticky totals</span><span class="pill">Export log</span></div></div>
+        </div>
+
+        <h3 style="margin:5mm 0 3mm;font-size:8pt;text-transform:uppercase;letter-spacing:.08em">Required interface states</h3>
+        <div class="state-strip">
+          <div class="state"><b>Empty</b><p>Explain why nothing appears and offer the next useful action or import path.</p></div>
+          <div class="state"><b>Loading</b><p>Preserve table shape and prevent accidental duplicate submissions.</p></div>
+          <div class="state"><b>Error</b><p>State what failed, what was preserved, and how to retry or seek support.</p></div>
+          <div class="state"><b>Read-only</b><p>Explain which permission or document state prevents editing.</p></div>
+        </div>
+
+        <div class="grid-3" style="margin-top:5mm">
+          <div class="card"><h3>Accessibility</h3><p class="micro">WCAG-aware contrast, keyboard focus, semantic labels, non-color status cues, and large interaction targets.</p></div>
+          <div class="card"><h3>Responsive strategy</h3><p class="micro">Desktop-first workflows, tablet-safe detail views, and prioritized mobile approvals instead of squeezed desktop tables.</p></div>
+          <div class="card"><h3>Developer handoff</h3><p class="micro">Named components, variants, tokens, spacing rules, responsive notes, validation, and prototype behavior.</p></div>
+        </div>
+
+        <footer class="page-foot"><span class="confidential">Design tokens shown for concept direction</span><span class="page-no">07 / 09</span></footer>
+      </div>
+    </section>
+
+    <!-- 08 / Delivery -->
+    <section class="page delivery" aria-label="Delivery plan">
+      <div class="page-inner">
+        <header class="doc-head">
+          <div class="brand"><span class="brand-mark">HX</span> HAURUX ERP Concept</div>
+          <span class="doc-kicker">07 · Delivery Plan</span>
+        </header>
+
+        <span class="eyebrow">Collaborative, reviewable, handoff-ready</span>
+        <h1 class="title">A phased path from ambiguity to build-ready UI.</h1>
+        <p class="subtitle">Rather than designing every page in isolation, I validate the riskiest workflows first, lock shared patterns, then scale confidently across the full screen inventory.</p>
+
+        <div class="timeline">
+          <article class="phase"><div class="phase-no">Phase 01</div><div><h3>Discovery &amp; workflow audit</h3><p>Stakeholder interview, current process review, users, entities, business rules, pain points, and technical constraints.</p></div><div class="phase-output"><b>Outputs</b>Scope baseline<br>Questions log<br>Risk map</div></article>
+          <article class="phase"><div class="phase-no">Phase 02</div><div><h3>Information architecture &amp; UX flows</h3><p>Navigation, module boundaries, role paths, state model, screen inventory, approval and exception flows.</p></div><div class="phase-output"><b>Outputs</b>Sitemap<br>User flows<br>Permission draft</div></article>
+          <article class="phase"><div class="phase-no">Phase 03</div><div><h3>Wireframes for core flows</h3><p>Low-fidelity PR→PO→Receive, Order→Cash, role administration, dashboard and key detail patterns.</p></div><div class="phase-output"><b>Outputs</b>Wireframes<br>UX review<br>Validated patterns</div></article>
+          <article class="phase"><div class="phase-no">Phase 04</div><div><h3>Design system &amp; high-fidelity UI</h3><p>Tokens, components, responsive rules, tables, forms, statuses, feedback, and all agreed screens.</p></div><div class="phase-output"><b>Outputs</b>UI library<br>Hi-fi screens<br>State variants</div></article>
+          <article class="phase"><div class="phase-no">Phase 05</div><div><h3>Prototype, handoff &amp; build support</h3><p>Clickable priority flows, annotations, asset export, design QA checklist, developer walkthrough, and review fixes.</p></div><div class="phase-output"><b>Outputs</b>Prototype<br>Figma handoff<br>QA support</div></article>
+        </div>
+
+        <div class="delivery-note">
+          <div class="scope-note">
+            <h3>Recommended planning range: 14 to 20 working days</h3>
+            <p>Final timeline depends on existing documentation, field complexity, number of approval variants, integrations, and response time. Milestones are agreed before production; scope changes are logged explicitly.</p>
+          </div>
+          <div class="meeting-note">
+            <h3>Flexible collaboration</h3>
+            <p>Async updates + scheduled online review during working hours. Up to two consolidated review rounds per approved phase.</p>
+          </div>
+        </div>
+
+        <div class="grid-4" style="margin-top:5mm">
+          <div class="card"><h3 style="font-size:7.3pt">Figma source</h3><p class="micro">Organized pages, components, variants, and assets.</p></div>
+          <div class="card"><h3 style="font-size:7.3pt">Clickable prototype</h3><p class="micro">Priority flows for review and development alignment.</p></div>
+          <div class="card"><h3 style="font-size:7.3pt">UX annotations</h3><p class="micro">Rules, states, permissions, validation, responsive notes.</p></div>
+          <div class="card"><h3 style="font-size:7.3pt">Handoff support</h3><p class="micro">Walkthrough and focused QA against approved designs.</p></div>
+        </div>
+
+        <footer class="page-foot"><span class="confidential">Schedule estimate · confirm after discovery</span><span class="page-no">08 / 09</span></footer>
+      </div>
+    </section>
+
+    <!-- 09 / Close -->
+    <section class="page dark closing" aria-label="Questions and contact">
+      <div class="page-inner">
+        <div class="cover-top">
+          <div class="brand"><span class="brand-mark">HX</span> HAURUX ERP Concept</div>
+          <span class="badge demo">READY TO DISCUSS</span>
+        </div>
+
+        <div class="closing-grid">
+          <div>
+            <span class="eyebrow">Before work begins</span>
+            <h1>Three answers will turn this concept into <em>your ERP.</em></h1>
+            <p class="closing-lede">A short discovery call can confirm scope, remove assumptions, and set a realistic first milestone.</p>
+
+            <div style="margin-top:8mm">
+              <div class="question"><span class="question-no">1</span><div><strong>Is this a greenfield ERP or a redesign?</strong><p>If it is a redesign, can you share demo access, screenshots, SOPs, field lists, or current user pain points?</p></div></div>
+              <div class="question"><span class="question-no">2</span><div><strong>Which business rules are non-negotiable?</strong><p>Which user roles, approval levels, company and warehouse structures, currencies, taxes, valuation rules, and integrations must be supported?</p></div></div>
+              <div class="question"><span class="question-no">3</span><div><strong>What should be the first approved milestone?</strong><p>Which module or workflow is highest priority, which viewports matter, and who gives final approval?</p></div></div>
+            </div>
+          </div>
+
+          <aside class="contact-card">
+            <img src="assets/avatar.png" alt="Zhenghao Zhang" />
+            <h2>Zhenghao Zhang</h2>
+            <div class="role-line">UI/UX · Product Systems · Web ERP</div>
+            <div class="contact-item"><b>Profile</b><span>github.com/zhang-zhenghao</span></div>
+            <div class="contact-item"><b>Availability</b><span>Flexible online collaboration</span></div>
+            <div class="contact-item"><b>Working language</b><span>English · Bahasa Indonesia (written)</span></div>
+            <div class="contact-item"><b>Next step</b><span>30-minute workflow &amp; scope review</span></div>
+          </aside>
+        </div>
+
+        <div class="closing-note">
+          <strong style="display:block;margin-bottom:1.3mm;color:var(--white);font-size:7pt">Portfolio integrity statement</strong>
+          This document is a project-specific concept proposal created from the public brief. ERP screens, figures, company names, and records shown here are synthetic demo material. They do not represent a claimed past client, production deployment, or measured business result. Final UI is produced only after stakeholder validation.
+        </div>
+
+        <div style="position:absolute;right:16mm;bottom:23mm;left:16mm;display:flex;align-items:flex-end;justify-content:space-between;padding-top:5mm;border-top:.3mm solid var(--line-dark)">
+          <div><span class="doc-kicker">Concept prepared by</span><div style="margin-top:1.5mm;font-size:10pt;font-weight:800">Zhenghao Zhang</div></div>
+          <div style="color:var(--accent);font-size:15pt;font-weight:800;letter-spacing:-.04em">Let’s make complex work feel clear.</div>
+        </div>
+
+        <footer class="page-foot"><span class="confidential">© 2026 Zhenghao Zhang</span><span class="page-no">09 / 09</span></footer>
+      </div>
+    </section>
+  </body>
+</html>

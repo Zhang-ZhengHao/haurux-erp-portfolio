@@ -1,0 +1,871 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="HAURUX ERP Concept 可打印的 Web ERP UI/UX 概念作品集。"
+    />
+    <title>HAURUX ERP Concept | ERP UI/UX 中文概念作品集</title>
+    <style>
+      :root {
+        --ink: #0b0d12;
+        --ink-2: #121720;
+        --ink-3: #1b222c;
+        --paper: #f4f5ef;
+        --paper-2: #e9ece4;
+        --white: #fbfcf7;
+        --accent: #c8ff3d;
+        --accent-dark: #719d00;
+        --muted: #68717a;
+        --muted-light: #a5adb4;
+        --line: #ccd1c8;
+        --line-dark: rgba(255, 255, 255, 0.16);
+        --green: #237a4c;
+        --blue: #2d62d6;
+        --amber: #9c6610;
+        --red: #b6433c;
+      }
+
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      body {
+        color: var(--ink);
+        background: #dfe2dc;
+        font-family: "WenQuanYi Zen Hei", "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+        font-size: 9pt;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
+      img { display: block; max-width: 100%; }
+      h1, h2, h3, h4, p { margin-top: 0; }
+      .page {
+        position: relative;
+        width: 210mm;
+        height: 297mm;
+        margin: 8mm auto;
+        overflow: hidden;
+        background: var(--paper);
+        box-shadow: 0 5mm 18mm rgba(10, 13, 18, .16);
+        break-after: page;
+        page-break-after: always;
+      }
+      .page:last-child { break-after: auto; page-break-after: auto; }
+      .page-inner { position: relative; height: 100%; padding: 13mm 14mm 14mm; }
+      .dark { color: var(--white); background: var(--ink); }
+      .dark .page-inner {
+        background:
+          radial-gradient(circle at 88% 13%, rgba(200,255,61,.13), transparent 25%),
+          linear-gradient(135deg, #0b0d12 0%, #121923 100%);
+      }
+
+      .doc-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10mm;
+        margin-bottom: 8mm;
+        padding-bottom: 4mm;
+        border-bottom: .3mm solid var(--line);
+      }
+      .dark .doc-head { border-color: var(--line-dark); }
+      .brand { display: flex; align-items: center; gap: 3mm; font-size: 8.2pt; font-weight: 800; letter-spacing: .07em; }
+      .brand-mark {
+        display: grid;
+        width: 8mm;
+        height: 8mm;
+        place-items: center;
+        border-radius: 2.4mm;
+        color: var(--ink);
+        background: var(--accent);
+        font-size: 6.7pt;
+        letter-spacing: -.04em;
+      }
+      .doc-kicker { color: var(--muted); font-size: 6.8pt; font-weight: 700; letter-spacing: .08em; }
+      .dark .doc-kicker { color: var(--muted-light); }
+      .page-foot {
+        position: absolute;
+        right: 14mm;
+        bottom: 6.5mm;
+        left: 14mm;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #7a838b;
+        font-size: 6.7pt;
+      }
+      .dark .page-foot { color: #8c959e; }
+      .page-no { color: var(--ink); font-weight: 800; }
+      .dark .page-no { color: var(--accent); }
+      .confidential { letter-spacing: .06em; }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 2mm;
+        margin-bottom: 3mm;
+        color: var(--accent-dark);
+        font-size: 6.8pt;
+        font-weight: 800;
+        letter-spacing: .08em;
+      }
+      .eyebrow::before { width: 2mm; height: 2mm; border-radius: 50%; background: currentColor; content: ""; }
+      .dark .eyebrow { color: var(--accent); }
+      .title { margin-bottom: 3mm; font-size: 25pt; line-height: 1.08; letter-spacing: -.035em; }
+      .subtitle { max-width: 145mm; margin-bottom: 6mm; color: var(--muted); font-size: 10pt; line-height: 1.55; }
+      .dark .subtitle { color: #bdc5cb; }
+      .micro { color: var(--muted); font-size: 7.2pt; }
+      .strong { color: var(--ink); font-weight: 800; }
+      .dark .strong { color: var(--white); }
+      .rule { height: .3mm; margin: 5mm 0; background: var(--line); }
+
+      .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4mm; }
+      .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3mm; }
+      .grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2.5mm; }
+      .span-2 { grid-column: span 2; }
+      .card { border: .3mm solid var(--line); border-radius: 3.5mm; background: rgba(255,255,255,.5); padding: 4mm; }
+      .card.dark-card { border-color: var(--line-dark); color: var(--white); background: var(--ink-2); }
+      .card h3 { margin-bottom: 1.6mm; font-size: 10.5pt; letter-spacing: -.025em; }
+      .card p:last-child { margin-bottom: 0; }
+      .index {
+        display: inline-grid;
+        min-width: 7mm;
+        height: 6mm;
+        margin-bottom: 4mm;
+        padding: 0 1.6mm;
+        place-items: center;
+        border-radius: 1.7mm;
+        color: var(--ink);
+        background: var(--accent);
+        font-size: 6.3pt;
+        font-weight: 900;
+      }
+      .pill-row { display: flex; flex-wrap: wrap; gap: 1.7mm; }
+      .pill { padding: 1.7mm 2.7mm; border: .3mm solid var(--line); border-radius: 99mm; color: #46505a; font-size: 6.8pt; font-weight: 700; }
+      .dark .pill { border-color: var(--line-dark); color: #c8cfd4; }
+      .pill.accent { border-color: rgba(113,157,0,.5); color: #4e7000; background: rgba(200,255,61,.19); }
+      .dark .pill.accent { border-color: rgba(200,255,61,.45); color: var(--accent); background: rgba(200,255,61,.08); }
+      .badge { display: inline-flex; align-items: center; gap: 1.5mm; padding: 1.5mm 2.3mm; border-radius: 99mm; font-size: 6.4pt; font-weight: 800; white-space: nowrap; }
+      .badge::before { width: 1.5mm; height: 1.5mm; border-radius: 50%; background: currentColor; content: ""; }
+      .badge.green { color: var(--green); background: #e2f2e8; }
+      .badge.blue { color: var(--blue); background: #e3eafd; }
+      .badge.amber { color: var(--amber); background: #f6ead5; }
+      .badge.red { color: var(--red); background: #f8e1df; }
+      .badge.demo { color: #5b8000; background: rgba(200,255,61,.25); }
+      .dark .badge.demo { color: var(--accent); background: rgba(200,255,61,.1); }
+
+      .cover .page-inner { padding: 16mm; }
+      .cover-top { display: flex; align-items: center; justify-content: space-between; }
+      .cover .brand { font-size: 8.7pt; }
+      .cover-ref { color: #7f8993; font-size: 6.8pt; letter-spacing: .08em; }
+      .cover-main { display: grid; grid-template-columns: 1fr 51mm; gap: 12mm; align-items: end; margin-top: 22mm; }
+      .cover h1 { max-width: 128mm; margin: 3mm 0 6mm; font-size: 39pt; line-height: 1; letter-spacing: -.055em; }
+      .cover h1 em { color: var(--accent); font-style: normal; }
+      .cover-lede { max-width: 118mm; color: #bec6cc; font-size: 11pt; line-height: 1.62; }
+      .portrait-wrap { position: relative; align-self: end; }
+      .portrait-frame { position: relative; width: 48mm; height: 63mm; overflow: hidden; border: .35mm solid rgba(255,255,255,.2); border-radius: 5mm; background: var(--ink-3); }
+      .portrait-frame::after { position: absolute; inset: 0; border: 1.4mm solid rgba(200,255,61,.08); border-radius: 4.5mm; content: ""; }
+      .portrait-frame img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; filter: saturate(.85) contrast(1.04); }
+      .portrait-label { margin-top: 3mm; color: #9fa8af; font-size: 6.5pt; line-height: 1.45; }
+      .portrait-label strong { display: block; color: var(--white); font-size: 8pt; }
+      .cover-scope { margin-top: 14mm; padding-top: 6mm; border-top: .3mm solid var(--line-dark); }
+      .cover-scope-label { margin-bottom: 3mm; color: #7e8992; font-size: 6.5pt; font-weight: 800; letter-spacing: .08em; }
+      .cover-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5mm; margin-top: 12mm; }
+      .cover-stat { min-height: 24mm; padding: 4mm; border: .3mm solid var(--line-dark); border-radius: 3mm; background: rgba(255,255,255,.025); }
+      .cover-stat strong { display: block; color: var(--accent); font-size: 20pt; letter-spacing: -.055em; line-height: 1; }
+      .cover-stat span { display: block; margin-top: 2mm; color: #8f99a2; font-size: 6.7pt; }
+      .cover-disclosure { position: absolute; right: 16mm; bottom: 15mm; left: 16mm; display: flex; justify-content: space-between; gap: 10mm; color: #747f89; font-size: 6.2pt; }
+
+      .match-table { overflow: hidden; border: .3mm solid var(--line); border-radius: 3.5mm; }
+      .match-row { display: grid; grid-template-columns: 31mm 1fr 20mm; min-height: 14.5mm; border-bottom: .3mm solid var(--line); }
+      .match-row:last-child { border-bottom: 0; }
+      .match-row > div { display: flex; align-items: center; padding: 3mm; }
+      .match-row > div + div { border-left: .3mm solid var(--line); }
+      .match-row.header { min-height: 9mm; color: #66717a; background: var(--paper-2); font-size: 6.5pt; font-weight: 800; letter-spacing: .07em; }
+      .match-row .req { font-weight: 800; }
+      .match-row .response { color: #4f5962; font-size: 7.5pt; }
+      .match-row .fit { justify-content: center; }
+      .principle { min-height: 31mm; }
+      .principle h3 { margin: 1mm 0 1.5mm; font-size: 9.5pt; }
+      .principle p { color: var(--muted); font-size: 7.2pt; }
+
+      .inventory-summary { display: grid; grid-template-columns: 36mm 1fr; gap: 4mm; margin-bottom: 5mm; }
+      .big-number { display: grid; min-height: 33mm; place-items: center; border-radius: 3.5mm; color: var(--ink); background: var(--accent); }
+      .big-number strong { display: block; font-size: 28pt; line-height: .8; letter-spacing: -.07em; }
+      .big-number span { display: block; margin-top: 2mm; font-size: 6.5pt; font-weight: 800; letter-spacing: .07em; }
+      .inventory-note { padding: 4mm; border: .3mm solid var(--line); border-radius: 3.5mm; background: rgba(255,255,255,.55); }
+      .inventory-note p { margin: 0; color: var(--muted); font-size: 7.6pt; }
+      .module-list { border: .3mm solid var(--line); border-radius: 3.5mm; overflow: hidden; }
+      .module-head { display: flex; align-items: center; justify-content: space-between; padding: 2.8mm 3.5mm; color: var(--white); background: var(--ink); }
+      .module-head h3 { margin: 0; font-size: 8.5pt; }
+      .module-head span { color: var(--accent); font-size: 6.3pt; font-weight: 800; }
+      .screens { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 2.5mm 3mm 3mm; gap: 1.2mm 3mm; }
+      .screen-item { display: flex; gap: 2mm; align-items: baseline; color: #3f4951; font-size: 6.9pt; }
+      .screen-item b { min-width: 5mm; color: var(--accent-dark); font-size: 6.2pt; }
+      .inventory-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; }
+
+      .role-strip { display: grid; grid-template-columns: repeat(6, 1fr); gap: 2mm; margin-bottom: 5mm; }
+      .role { min-height: 27mm; padding: 3mm; border: .3mm solid var(--line); border-radius: 3mm; background: rgba(255,255,255,.45); }
+      .role-code { display: grid; width: 7mm; height: 7mm; margin-bottom: 2.5mm; place-items: center; border-radius: 2mm; color: var(--ink); background: var(--accent); font-size: 6pt; font-weight: 900; }
+      .role h3 { margin-bottom: 1mm; font-size: 7.8pt; }
+      .role p { margin: 0; color: var(--muted); font-size: 6.3pt; line-height: 1.4; }
+      .matrix { overflow: hidden; border: .3mm solid var(--line); border-radius: 3.5mm; }
+      .matrix-row { display: grid; grid-template-columns: 44mm repeat(6, 1fr); border-bottom: .3mm solid var(--line); }
+      .matrix-row:last-child { border-bottom: 0; }
+      .matrix-row > div { min-height: 10mm; display: grid; place-items: center; padding: 1.5mm; border-left: .3mm solid var(--line); text-align: center; font-size: 6.5pt; }
+      .matrix-row > div:first-child { place-items: center start; border-left: 0; padding-left: 3mm; font-weight: 700; text-align: left; }
+      .matrix-head { color: #6a747d; background: var(--paper-2); font-weight: 800; }
+      .perm { display: inline-grid; min-width: 5mm; height: 5mm; padding: 0 .9mm; place-items: center; border-radius: 1.3mm; font-size: 5.7pt; font-weight: 900; }
+      .perm.v { color: var(--blue); background: #e3eafd; }
+      .perm.c { color: var(--green); background: #e2f2e8; }
+      .perm.a { color: #5b780b; background: #e8f6c8; }
+      .perm.m { color: var(--amber); background: #f6ead5; }
+      .perm.na { color: #8a9299; background: #e6e8e4; }
+      .legend { display: flex; flex-wrap: wrap; gap: 3mm; margin-top: 3mm; color: var(--muted); font-size: 6.5pt; }
+      .legend span { display: inline-flex; align-items: center; gap: 1.2mm; }
+
+      .flow { display: flex; align-items: stretch; gap: 1.5mm; margin: 4mm 0 5mm; }
+      .flow-step { position: relative; flex: 1; min-height: 24mm; padding: 3mm; border: .3mm solid var(--line-dark); border-radius: 2.8mm; background: rgba(255,255,255,.04); }
+      .flow-step + .flow-step::before { position: absolute; top: 10.5mm; left: -2.4mm; width: 3mm; height: 3mm; border-top: .5mm solid var(--accent); border-right: .5mm solid var(--accent); transform: rotate(45deg); content: ""; }
+      .flow-step b { display: block; margin-bottom: 1.5mm; color: var(--accent); font-size: 6.2pt; letter-spacing: .07em; }
+      .flow-step strong { display: block; margin-bottom: 1mm; color: var(--white); font-size: 7.8pt; }
+      .flow-step span { color: #8f9aa4; font-size: 5.9pt; line-height: 1.4; }
+      .mock-shell { border: .3mm solid var(--line-dark); border-radius: 3.5mm; background: #10151d; overflow: hidden; }
+      .mock-bar { display: flex; align-items: center; justify-content: space-between; height: 11mm; padding: 0 4mm; border-bottom: .3mm solid var(--line-dark); color: #88949e; font-size: 6.3pt; }
+      .mock-dots { display: flex; gap: 1.2mm; }
+      .mock-dots i { width: 1.6mm; height: 1.6mm; border-radius: 50%; background: #3b4550; }
+      .mock-body { display: grid; grid-template-columns: 33mm 1fr; min-height: 91mm; }
+      .mock-side { padding: 4mm 3mm; border-right: .3mm solid var(--line-dark); background: #0d1218; }
+      .mock-logo { display: flex; align-items: center; gap: 1.5mm; margin-bottom: 6mm; color: var(--white); font-size: 6.7pt; font-weight: 800; }
+      .mock-logo i { width: 5mm; height: 5mm; border-radius: 1.4mm; background: var(--accent); }
+      .mock-nav { margin-bottom: 1mm; padding: 2mm; border-radius: 1.5mm; color: #77828c; font-size: 6pt; }
+      .mock-nav.active { color: var(--white); background: rgba(200,255,61,.1); }
+      .mock-main { padding: 4mm; }
+      .mock-title { display: flex; align-items: flex-start; justify-content: space-between; gap: 3mm; margin-bottom: 4mm; }
+      .mock-title h3 { margin: 0; color: var(--white); font-size: 13pt; letter-spacing: -.04em; }
+      .mock-title p { margin: .8mm 0 0; color: #77838e; font-size: 6.2pt; }
+      .mock-button { padding: 2mm 3mm; border-radius: 1.8mm; color: var(--ink); background: var(--accent); font-size: 6.2pt; font-weight: 800; }
+      .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2mm; margin-bottom: 3mm; }
+      .metric { padding: 2.5mm; border: .3mm solid var(--line-dark); border-radius: 2mm; background: rgba(255,255,255,.03); }
+      .metric span { display: block; color: #7e8993; font-size: 5.6pt; }
+      .metric strong { display: block; margin-top: 1mm; color: var(--white); font-size: 11pt; }
+      .data-card { border: .3mm solid var(--line-dark); border-radius: 2.2mm; overflow: hidden; }
+      .data-row { display: grid; grid-template-columns: 1fr .78fr .8fr .55fr; align-items: center; min-height: 9mm; padding: 1.8mm 2.5mm; border-bottom: .3mm solid var(--line-dark); color: #b7c0c7; font-size: 5.8pt; }
+      .data-row:last-child { border-bottom: 0; }
+      .data-row.header { min-height: 7mm; color: #6f7b85; background: rgba(255,255,255,.025); font-size: 5.3pt; font-weight: 800; letter-spacing: .04em; }
+      .mini-status { justify-self: start; padding: 1mm 1.6mm; border-radius: 99mm; font-size: 5.1pt; font-weight: 800; }
+      .mini-status.green { color: #8fe1a4; background: rgba(52,154,89,.13); }
+      .mini-status.amber { color: #efc270; background: rgba(210,147,39,.12); }
+      .mini-status.red { color: #ff988f; background: rgba(211,69,62,.13); }
+      .exception-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5mm; margin-top: 4mm; }
+      .exception { min-height: 24mm; padding: 3mm; border: .3mm solid var(--line-dark); border-radius: 2.7mm; background: rgba(255,255,255,.025); }
+      .exception b { display: block; margin-bottom: 1mm; color: var(--accent); font-size: 6.2pt; }
+      .exception p { margin: 0; color: #9aa4ad; font-size: 6.2pt; line-height: 1.45; }
+
+      .split-flow { display: grid; grid-template-columns: 1.1fr .9fr; gap: 4mm; }
+      .vertical-flow { border: .3mm solid var(--line); border-radius: 3.5mm; background: rgba(255,255,255,.48); padding: 4mm; }
+      .vstep { position: relative; display: grid; grid-template-columns: 8mm 1fr auto; gap: 3mm; align-items: center; min-height: 17mm; padding-bottom: 3mm; }
+      .vstep:last-child { padding-bottom: 0; }
+      .vstep:not(:last-child)::after { position: absolute; top: 10mm; bottom: 0; left: 3.7mm; width: .4mm; background: #bec5ba; content: ""; }
+      .vnum { z-index: 1; display: grid; width: 8mm; height: 8mm; place-items: center; border-radius: 50%; color: var(--ink); background: var(--accent); font-size: 6pt; font-weight: 900; }
+      .vstep strong { display: block; font-size: 8.1pt; }
+      .vstep small { display: block; margin-top: .7mm; color: var(--muted); font-size: 6.2pt; }
+      .vstep .owner { color: var(--muted); font-size: 5.8pt; font-weight: 700; }
+      .ledger { color: var(--white); background: var(--ink); border-radius: 3.5mm; padding: 4mm; }
+      .ledger h3 { margin-bottom: 3mm; font-size: 10.5pt; }
+      .ledger-row { display: grid; grid-template-columns: 1fr auto; gap: 3mm; padding: 3mm 0; border-bottom: .3mm solid var(--line-dark); }
+      .ledger-row:last-child { border-bottom: 0; }
+      .ledger-row b { display: block; font-size: 7.2pt; }
+      .ledger-row small { display: block; margin-top: .6mm; color: #84909a; font-size: 6pt; }
+      .ledger-row strong { color: var(--accent); font-size: 8pt; }
+      .control-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5mm; margin-top: 5mm; }
+      .control { min-height: 31mm; padding: 3mm; border: .3mm solid var(--line); border-radius: 2.8mm; background: rgba(255,255,255,.5); }
+      .control i { display: grid; width: 7mm; height: 7mm; margin-bottom: 2mm; place-items: center; border-radius: 1.8mm; color: var(--ink); background: var(--accent); font-style: normal; font-size: 5.7pt; font-weight: 900; }
+      .control h3 { margin-bottom: 1mm; font-size: 7.7pt; }
+      .control p { margin: 0; color: var(--muted); font-size: 6.1pt; }
+
+      .tokens { display: grid; grid-template-columns: 1.1fr .9fr; gap: 4mm; }
+      .palette { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2mm; }
+      .swatch { overflow: hidden; border: .3mm solid var(--line); border-radius: 2.5mm; }
+      .swatch-color { height: 21mm; }
+      .swatch-meta { padding: 2.2mm; background: rgba(255,255,255,.55); }
+      .swatch-meta b { display: block; font-size: 6.5pt; }
+      .swatch-meta span { color: var(--muted); font-size: 5.5pt; }
+      .type-card { padding: 4mm; border: .3mm solid var(--line); border-radius: 3.5mm; background: rgba(255,255,255,.5); }
+      .type-display { margin-bottom: 2mm; font-size: 24pt; font-weight: 800; letter-spacing: -.04em; line-height: 1.02; }
+      .type-body { color: var(--muted); font-size: 8pt; }
+      .component-board { margin-top: 5mm; padding: 4mm; border: .3mm solid var(--line); border-radius: 3.5mm; background: #fff; }
+      .component-row { display: grid; grid-template-columns: 28mm 1fr; gap: 4mm; align-items: center; min-height: 15mm; border-bottom: .3mm solid #e3e6df; }
+      .component-row:last-child { border-bottom: 0; }
+      .component-label { color: var(--muted); font-size: 6.2pt; font-weight: 800; letter-spacing: .05em; }
+      .component-demo { display: flex; flex-wrap: wrap; align-items: center; gap: 2mm; }
+      .ui-button { padding: 2.2mm 3.2mm; border-radius: 1.8mm; font-size: 6.3pt; font-weight: 800; }
+      .ui-button.primary { color: var(--ink); background: var(--accent); }
+      .ui-button.secondary { border: .3mm solid var(--line); background: var(--paper); }
+      .ui-button.danger { color: var(--red); background: #f8e1df; }
+      .input { min-width: 45mm; padding: 2.4mm 3mm; border: .3mm solid #b9c0b7; border-radius: 1.8mm; color: #68717a; font-size: 6.4pt; }
+      .state-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5mm; margin-top: 4mm; }
+      .state { min-height: 28mm; padding: 3mm; border: .3mm solid var(--line); border-radius: 2.8mm; background: rgba(255,255,255,.45); }
+      .state b { display: block; margin-bottom: 1mm; font-size: 7.4pt; }
+      .state p { margin: 0; color: var(--muted); font-size: 5.9pt; }
+
+      .timeline { position: relative; margin-top: 4mm; }
+      .phase { display: grid; grid-template-columns: 25mm 1fr 31mm; gap: 4mm; min-height: 32mm; padding: 3.7mm 0; border-top: .3mm solid var(--line); }
+      .phase:last-child { border-bottom: .3mm solid var(--line); }
+      .phase-no { color: var(--accent-dark); font-size: 6.5pt; font-weight: 900; letter-spacing: .07em; }
+      .phase h3 { margin-bottom: 1.2mm; font-size: 10pt; }
+      .phase p { margin: 0; color: var(--muted); font-size: 6.8pt; }
+      .phase-output { color: #4d575f; font-size: 6.1pt; line-height: 1.5; }
+      .phase-output b { display: block; margin-bottom: 1mm; color: var(--ink); font-size: 6pt; letter-spacing: .05em; }
+      .delivery-note { display: grid; grid-template-columns: 1.35fr .65fr; gap: 3mm; margin-top: 5mm; }
+      .scope-note { padding: 4mm; border-radius: 3.5mm; color: var(--white); background: var(--ink); }
+      .scope-note h3 { color: var(--accent); font-size: 9.3pt; }
+      .scope-note p { margin: 0; color: #a8b1b8; font-size: 6.8pt; }
+      .meeting-note { padding: 4mm; border: .3mm solid rgba(113,157,0,.42); border-radius: 3.5mm; background: rgba(200,255,61,.18); }
+      .meeting-note h3 { font-size: 9.3pt; }
+      .meeting-note p { margin: 0; color: #566140; font-size: 6.8pt; }
+      .delivery .phase { min-height: 24mm; padding: 2.5mm 0; }
+      .delivery .phase p { line-height: 1.4; }
+      .delivery .delivery-note { margin-top: 3mm; }
+      .delivery .delivery-note + .grid-4 { margin-top: 3mm !important; }
+      .delivery .grid-4 .card { min-height: 23mm; padding: 3mm; }
+
+      .closing .page-inner { padding: 15mm 16mm; }
+      .closing-grid { display: grid; grid-template-columns: 1.12fr .88fr; gap: 10mm; align-items: start; margin-top: 9mm; }
+      .closing h1 { margin: 2mm 0 5mm; font-size: 33pt; line-height: 1.05; letter-spacing: -.045em; }
+      .closing h1 em { color: var(--accent); font-style: normal; }
+      .closing-lede { max-width: 105mm; color: #b9c1c7; font-size: 10.5pt; }
+      .question { display: grid; grid-template-columns: 8mm 1fr; gap: 3mm; padding: 4mm 0; border-top: .3mm solid var(--line-dark); }
+      .question:last-child { border-bottom: .3mm solid var(--line-dark); }
+      .question-no { display: grid; width: 7mm; height: 7mm; place-items: center; border-radius: 50%; color: var(--ink); background: var(--accent); font-size: 6.3pt; font-weight: 900; }
+      .question strong { display: block; color: var(--white); font-size: 8.5pt; }
+      .question p { margin: 1mm 0 0; color: #919ca5; font-size: 6.8pt; }
+      .contact-card { border: .3mm solid rgba(200,255,61,.35); border-radius: 4mm; background: rgba(200,255,61,.07); padding: 5mm; }
+      .contact-card img { width: 27mm; height: 27mm; margin-bottom: 5mm; border-radius: 50%; object-fit: cover; object-position: 50% 20%; border: .6mm solid var(--accent); }
+      .contact-card h2 { margin-bottom: 1mm; font-size: 15pt; letter-spacing: -.04em; }
+      .contact-card .role-line { color: var(--accent); font-size: 7pt; font-weight: 800; letter-spacing: .05em; }
+      .contact-item { margin-top: 4mm; padding-top: 3mm; border-top: .3mm solid var(--line-dark); }
+      .contact-item b { display: block; margin-bottom: 1mm; color: #7f8992; font-size: 5.8pt; letter-spacing: .06em; }
+      .contact-item span { color: var(--white); font-size: 7.5pt; overflow-wrap: anywhere; }
+      .closing-note { margin-top: 9mm; padding: 4mm; border-left: 1mm solid var(--accent); color: #929ca5; background: rgba(255,255,255,.035); font-size: 6.6pt; }
+
+      @media print {
+        @page { size: A4; margin: 0; }
+        body { background: transparent; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        .page { margin: 0; box-shadow: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 01 / 封面 -->
+    <section class="page dark cover" aria-label="封面">
+      <div class="page-inner">
+        <div class="cover-top">
+          <div class="brand"><span class="brand-mark">HX</span> HAURUX ERP Concept</div>
+          <div class="cover-ref">概念作品集 · Web ERP · 2026</div>
+        </div>
+
+        <div class="cover-main">
+          <div>
+            <span class="eyebrow">UI/UX 概念作品集与项目方法</span>
+            <h1>复杂 ERP，<br />也能<em>清晰易用。</em></h1>
+            <p class="cover-lede">
+              一份面向 Web ERP 的工作流优先概念设计，覆盖用户、销售、采购、库存与财务核算，围绕每个角色每天必须完成的判断与操作展开。
+            </p>
+            <div class="pill-row" style="margin-top: 7mm">
+              <span class="pill accent">用户与角色</span>
+              <span class="pill accent">销售</span>
+              <span class="pill accent">PR / PO</span>
+              <span class="pill accent">IMS / 库存</span>
+              <span class="pill accent">财务核算</span>
+            </div>
+          </div>
+          <aside class="portrait-wrap">
+            <div class="portrait-frame"><img src="assets/avatar.png" alt="HAURUX ERP Concept 代表头像" /></div>
+            <div class="portrait-label">
+              <strong>HAURUX ERP Concept</strong>
+              UI/UX 与产品系统
+            </div>
+          </aside>
+        </div>
+
+        <div class="cover-stats">
+          <div class="cover-stat"><strong>37</strong><span>为拟议 ERP 范围规划的界面</span></div>
+          <div class="cover-stat"><strong>5</strong><span>端到端连接的核心业务模块</span></div>
+          <div class="cover-stat"><strong>1</strong><span>支持一致交接的可复用设计系统</span></div>
+        </div>
+
+        <div class="cover-scope">
+          <div class="cover-scope-label">作品主题</div>
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:10mm">
+            <div>
+              <div style="font-size:15pt;font-weight:800;letter-spacing:-.025em">Web ERP 应用 UI/UX 设计</div>
+              <div style="margin-top:1.5mm;color:#8f99a2;font-size:7pt">自主制作的概念研究 · 支持灵活的线上协作</div>
+            </div>
+            <span class="badge demo">概念演示（Concept / Demo）</span>
+          </div>
+        </div>
+
+        <div class="cover-disclosure">
+          <span>© 2026 Zhenghao Zhang</span>
+          <span>github.com/zhang-zhenghao</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 / 需求理解 -->
+    <section class="page" aria-label="需求理解与匹配">
+      <div class="page-inner">
+        <header class="doc-head">
+          <div class="brand"><span class="brand-mark">HX</span> HAURUX ERP Concept</div>
+          <span class="doc-kicker">01 · 需求匹配</span>
+        </header>
+
+        <span class="eyebrow">理解每个界面背后的真实工作</span>
+        <h1 class="title">把需求说明转化为真正可用的 ERP 体验。</h1>
+        <p class="subtitle">
+          这项工作需要的是完整 Web ERP 的 UI/UX，而不是彼此孤立的视觉稿。下面把每项需求对应到清晰、可审查的设计结果。
+        </p>
+
+        <div class="match-table">
+          <div class="match-row header"><div>需求内容</div><div>设计响应</div><div>匹配度</div></div>
+          <div class="match-row"><div class="req">全部 Web 应用界面</div><div class="response">规划 37 个界面的清单，并为列表、详情、新建/编辑、审批和报表提供共享模式。</div><div class="fit"><span class="badge green">已规划</span></div></div>
+          <div class="match-row"><div class="req">用户模块</div><div class="response">用户目录、个人资料、基于角色的权限、权限复核，以及可审计的活动记录。</div><div class="fit"><span class="badge green">已覆盖</span></div></div>
+          <div class="match-row"><div class="req">销售模块</div><div class="response">客户 → 报价 → 订单 → 销售履约 → 发票，并覆盖状态与异常处理。</div><div class="fit"><span class="badge green">已覆盖</span></div></div>
+          <div class="match-row"><div class="req">PR / PO</div><div class="response">采购申请、审批、供应商比价、采购订单、收货，以及三单匹配准备。</div><div class="fit"><span class="badge green">已覆盖</span></div></div>
+          <div class="match-row"><div class="req">IMS / 库存</div><div class="response">物料主数据、仓库库存、调拨、调整、收货，以及低库存预警。</div><div class="fit"><span class="badge green">已覆盖</span></div></div>
+          <div class="match-row"><div class="req">财务核算</div><div class="response">应付、应收、发票状态、日记账、对账，以及可追溯的源单据链接。</div><div class="fit"><span class="badge green">已覆盖</span></div></div>
+          <div class="match-row"><div class="req">灵活会议安排</div><div class="response">以异步检查点为主，并在工作时间安排线上集中评审。</div><div class="fit"><span class="badge blue">可配合</span></div></div>
+        </div>
+
+        <div class="grid-3" style="margin-top:5mm">
+          <div class="card principle"><span class="index">01</span><h3>工作流优先</h3><p>每个界面都对应角色、判断、下一步操作和恢复路径，让体验服务于运营，而不只是装饰。</p></div>
+          <div class="card principle"><span class="index">02</span><h3>数据密集，仍然易读</h3><p>通过层级、渐进披露、已保存筛选条件和统一表格模式组织 ERP 数据。</p></div>
+          <div class="card principle"><span class="index">03</span><h3>默认安全</h3><p>从一开始就设计权限、审批、校验、审计轨迹和破坏性操作保护。</p></div>
+        </div>
+
+        <div class="card" style="margin-top:4mm;padding:3.2mm 4mm;display:grid;grid-template-columns:30mm 1fr;gap:4mm;align-items:center;background:var(--paper-2)">
+          <strong style="font-size:7pt;letter-spacing:.06em">范围假设</strong>
+          <span class="micro">桌面优先的响应式 Web 应用。最终实体、字段、审批层级、税务规则和集成方式，需要在进入高保真制作前通过需求发现确认。</span>
+        </div>
+
+        <footer class="page-foot"><span class="confidential">自主概念设计 · 非客户交付项目</span><span class="page-no">02 / 09</span></footer>
+      </div>
+    </section>
+
+    <!-- 03 / 37 个界面 -->
+    <section class="page" aria-label="37 个界面清单">
+      <div class="page-inner">
+        <header class="doc-head">
+          <div class="brand"><span class="brand-mark">HX</span> HAURUX ERP Concept</div>
+          <span class="doc-kicker">02 · 范围架构图</span>
+        </header>
+
+        <div class="inventory-summary">
+          <div class="big-number"><div><strong>37</strong><span>个界面</span></div></div>
+          <div class="inventory-note">
+            <span class="eyebrow" style="margin-bottom:2mm">拟议信息架构</span>
+            <h1 style="margin-bottom:2mm;font-size:19pt;letter-spacing:-.025em">足以支持估算，也为验证保留弹性。</h1>
+            <p>该清单定义第一版设计基线。共享抽屉、弹窗、筛选、导入/导出、加载、空白、错误与权限状态均作为组件变体处理，不额外计为界面。</p>
+          </div>
+        </div>
+
+        <div class="inventory-grid">
+          <article class="module-list">
+            <div class="module-head"><h3>基础功能与导航</h3><span>05 个界面</span></div>
+            <div class="screens">
+              <div class="screen-item"><b>01</b><span>登录与账号恢复</span></div>
+              <div class="screen-item"><b>02</b><span>个人资料与偏好设置</span></div>
+              <div class="screen-item"><b>03</b><span>全局搜索与快捷操作</span></div>
+              <div class="screen-item"><b>04</b><span>通知中心</span></div>
+              <div class="screen-item"><b>05</b><span>活动记录与审计日志</span></div>
+            </div>
+          </article>
+
+          <article class="module-list">
+            <div class="module-head"><h3>用户与角色</h3><span>05 个界面</span></div>
+            <div class="screens">
+              <div class="screen-item"><b>06</b><span>用户目录</span></div>
+              <div class="screen-item"><b>07</b><span>新建 / 编辑用户</span></div>
+              <div class="screen-item"><b>08</b><span>用户详情与活动</span></div>
+              <div class="screen-item"><b>09</b><span>角色与权限</span></div>
+              <div class="screen-item"><b>10</b><span>权限复核队列</span></div>
+            </div>
+          </article>
+
+          <article class="module-list">
+            <div class="module-head"><h3>销售</h3><span>08 个界面</span></div>
+            <div class="screens">
+              <div class="screen-item"><b>11</b><span>销售看板</span></div>
+              <div class="screen-item"><b>12</b><span>客户列表</span></div>
+              <div class="screen-item"><b>13</b><span>客户详情</span></div>
+              <div class="screen-item"><b>14</b><span>报价单列表</span></div>
+              <div class="screen-item"><b>15</b><span>新建 / 编辑报价单</span></div>
+              <div class="screen-item"><b>16</b><span>销售订单列表</span></div>
+              <div class="screen-item"><b>17</b><span>销售订单详情</span></div>
+              <div class="screen-item"><b>18</b><span>销售履约与交付</span></div>
+            </div>
+          </article>
+
+          <article class="module-list">
+            <div class="module-head"><h3>PR / PO</h3><span>08 个界面</span></div>
+            <div class="screens">
+              <div class="screen-item"><b>19</b><span>采购申请列表</span></div>
+              <div class="screen-item"><b>20</b><span>新建 / 编辑 PR</span></div>
+              <div class="screen-item"><b>21</b><span>PR 详情与审批</span></div>
+              <div class="screen-item"><b>22</b><span>询价单（RFQ）</span></div>
+              <div class="screen-item"><b>23</b><span>供应商比价</span></div>
+              <div class="screen-item"><b>24</b><span>采购订单列表</span></div>
+              <div class="screen-item"><b>25</b><span>采购订单详情</span></div>
+              <div class="screen-item"><b>26</b><span>货物收货</span></div>
+            </div>
+          </article>
+
+          <article class="module-list">
+            <div class="module-head"><h3>库存管理（IMS）</h3><span>06 个界面</span></div>
+            <div class="screens">
+              <div class="screen-item"><b>27</b><span>库存看板</span></div>
+              <div class="screen-item"><b>28</b><span>物料主数据列表</span></div>
+              <div class="screen-item"><b>29</b><span>物料详情与库存卡</span></div>
+              <div class="screen-item"><b>30</b><span>仓库与库位视图</span></div>
+              <div class="screen-item"><b>31</b><span>库存调拨</span></div>
+              <div class="screen-item"><b>32</b><span>库存调整与循环盘点</span></div>
+            </div>
+          </article>
+
+          <article class="module-list">
+            <div class="module-head"><h3>财务核算</h3><span>05 个界面</span></div>
+            <div class="screens">
+              <div class="screen-item"><b>33</b><span>财务核算看板</span></div>
+              <div class="screen-item"><b>34</b><span>应付账款 / 账单</span></div>
+              <div class="screen-item"><b>35</b><span>应收账款 / 发票</span></div>
+              <div class="screen-item"><b>36</b><span>日记账分录</span></div>
+              <div class="screen-item"><b>37</b><span>银行对账</span></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="card" style="margin-top:4mm;padding:3.2mm 4mm;display:flex;align-items:center;justify-content:space-between;gap:5mm;background:rgba(200,255,61,.15);border-color:rgba(113,157,0,.38)">
+          <div><strong style="display:block;font-size:8pt">“界面”的定义</strong><span class="micro">完成一项独立工作的路由或工作区，而不是每个弹窗或组件状态。</span></div>
+          <span class="badge demo">拟议概念范围</span>
+        </div>
+
+        <footer class="page-foot"><span class="confidential">界面数量：05 + 05 + 08 + 08 + 06 + 05</span><span class="page-no">03 / 09</span></footer>
+      </div>
+    </section>
+
+    <!-- 04 / 用户与权限 -->
+    <section class="page" aria-label="用户与角色权限矩阵">
+      <div class="page-inner">
+        <header class="doc-head">
+          <div class="brand"><span class="brand-mark">HX</span> HAURUX ERP Concept</div>
+          <span class="doc-kicker">03 · 角色与控制</span>
+        </header>
+
+        <span class="eyebrow">基于角色的体验</span>
+        <h1 class="title">让正确的人执行正确的操作。</h1>
+        <p class="subtitle">ERP 是否好用，取决于哪些内容应隐藏、哪些操作可直接执行、哪些操作必须审批。本概念在保持日常操作高效的同时，坚持最小权限原则。</p>
+
+        <div class="role-strip">
+          <div class="role"><span class="role-code">AD</span><h3>管理员</h3><p>用户、角色、主数据、审计与系统设置。</p></div>
+          <div class="role"><span class="role-code">SA</span><h3>销售</h3><p>客户、报价、订单与履约进度。</p></div>
+          <div class="role"><span class="role-code">PR</span><h3>采购</h3><p>PR 复核、RFQ、供应商与 PO 准备。</p></div>
+          <div class="role"><span class="role-code">WH</span><h3>仓库</h3><p>收货、库存、移动与循环盘点。</p></div>
+          <div class="role"><span class="role-code">FI</span><h3>财务</h3><p>账单、发票、日记账与对账。</p></div>
+          <div class="role"><span class="role-code">AP</span><h3>审批人</h3><p>按阈值复核、批准、驳回与委派。</p></div>
+        </div>
+
+        <div class="matrix" aria-label="角色权限矩阵">
+          <div class="matrix-row matrix-head"><div>能力</div><div>AD</div><div>SA</div><div>PR</div><div>WH</div><div>FI</div><div>AP</div></div>
+          <div class="matrix-row"><div>用户与角色管理</div><div><span class="perm m">M</span></div><div><span class="perm na">N/A</span></div><div><span class="perm na">N/A</span></div><div><span class="perm na">N/A</span></div><div><span class="perm v">V</span></div><div><span class="perm v">V</span></div></div>
+          <div class="matrix-row"><div>客户与报价</div><div><span class="perm m">M</span></div><div><span class="perm c">C</span></div><div><span class="perm v">V</span></div><div><span class="perm v">V</span></div><div><span class="perm v">V</span></div><div><span class="perm a">A</span></div></div>
+          <div class="matrix-row"><div>销售订单与履约</div><div><span class="perm m">M</span></div><div><span class="perm c">C</span></div><div><span class="perm v">V</span></div><div><span class="perm m">M</span></div><div><span class="perm v">V</span></div><div><span class="perm a">A</span></div></div>
+          <div class="matrix-row"><div>采购申请</div><div><span class="perm m">M</span></div><div><span class="perm c">C</span></div><div><span class="perm c">C</span></div><div><span class="perm c">C</span></div><div><span class="perm v">V</span></div><div><span class="perm a">A</span></div></div>
+          <div class="matrix-row"><div>RFQ、供应商与采购订单</div><div><span class="perm m">M</span></div><div><span class="perm v">V</span></div><div><span class="perm m">M</span></div><div><span class="perm v">V</span></div><div><span class="perm v">V</span></div><div><span class="perm a">A</span></div></div>
+          <div class="matrix-row"><div>货物收货</div><div><span class="perm m">M</span></div><div><span class="perm v">V</span></div><div><span class="perm v">V</span></div><div><span class="perm m">M</span></div><div><span class="perm v">V</span></div><div><span class="perm a">A</span></div></div>
+          <div class="matrix-row"><div>库存调拨与调整</div><div><span class="perm m">M</span></div><div><span class="perm v">V</span></div><div><span class="perm v">V</span></div><div><span class="perm c">C</span></div><div><span class="perm v">V</span></div><div><span class="perm a">A</span></div></div>
+          <div class="matrix-row"><div>账单、发票与付款</div><div><span class="perm m">M</span></div><div><span class="perm v">V</span></div><div><span class="perm v">V</span></div><div><span class="perm v">V</span></div><div><span class="perm m">M</span></div><div><span class="perm a">A</span></div></div>
+          <div class="matrix-row"><div>日记账与对账</div><div><span class="perm m">M</span></div><div><span class="perm na">N/A</span></div><div><span class="perm na">N/A</span></div><div><span class="perm na">N/A</span></div><div><span class="perm m">M</span></div><div><span class="perm a">A</span></div></div>
+          <div class="matrix-row"><div>审计日志与导出</div><div><span class="perm m">M</span></div><div><span class="perm v">V</span></div><div><span class="perm v">V</span></div><div><span class="perm v">V</span></div><div><span class="perm m">M</span></div><div><span class="perm v">V</span></div></div>
+        </div>
+
+        <div class="legend">
+          <span><i class="perm v">V</i> 查看</span><span><i class="perm c">C</i> 新建 / 处理</span><span><i class="perm a">A</i> 审批</span><span><i class="perm m">M</i> 管理</span><span><i class="perm na">N/A</i> 无权限</span>
+        </div>
+
+        <div class="grid-3" style="margin-top:5mm">
+          <div class="card"><h3>审批阈值</h3><p class="micro">可按金额、部门、仓库或风险分流，并显示截止时间、SLA 与备用审批人。</p></div>
+          <div class="card"><h3>操作级保护</h3><p class="micro">不仅控制页面访问，还区分“查看”“过账”“审批”“作废”“导出”和“调整”。</p></div>
+          <div class="card"><h3>完整可追溯</h3><p class="micro">记录操作人、时间戳、原值、原因、附件，以及关联的源单据。</p></div>
+        </div>
+
+        <footer class="page-foot"><span class="confidential">示意权限矩阵 · 最终策略需在需求发现阶段确认</span><span class="page-no">04 / 09</span></footer>
+      </div>
+    </section>
+
+    <!-- 05 / 采购与库存 -->
+    <section class="page dark" aria-label="采购与库存工作流">
+      <div class="page-inner">
+        <header class="doc-head">
+          <div class="brand"><span class="brand-mark">HX</span> HAURUX ERP Concept</div>
+          <span class="doc-kicker">04 · 核心业务流 A</span>
+        </header>
+
+        <div style="display:flex;justify-content:space-between;gap:8mm;align-items:end">
+          <div>
+            <span class="eyebrow">从采购到入库</span>
+            <h1 class="title" style="max-width:130mm">PR → PO → 收货 → 入库</h1>
+          </div>
+          <span class="badge demo">概念演示（Concept / Demo）</span>
+        </div>
+        <p class="subtitle">从业务需求到实物库存与应付准备，形成一条证据互联、状态可追溯的完整链路。</p>
+
+        <div class="flow">
+          <div class="flow-step"><b>01</b><strong>采购申请</strong><span>申请人填写用途、物料、数量和成本中心。</span></div>
+          <div class="flow-step"><b>02</b><strong>审批</strong><span>金额与规则共同决定审批路径。</span></div>
+          <div class="flow-step"><b>03</b><strong>RFQ 与比价</strong><span>统一比较供应商条款、交期、价格和税费。</span></div>
+          <div class="flow-step"><b>04</b><strong>采购订单</strong><span>已批准的选择生成受控 PO。</span></div>
+          <div class="flow-step"><b>05</b><strong>货物收货</strong><span>仓库记录数量、批次、差异与凭证。</span></div>
+          <div class="flow-step"><b>06</b><strong>入库与匹配</strong><span>更新台账；财务核对 PO、收货单和发票。</span></div>
+        </div>
+
+        <div class="mock-shell">
+          <div class="mock-bar"><div class="mock-dots"><i></i><i></i><i></i></div><span>ERP / 采购 / 采购申请</span><span>演示工作台</span></div>
+          <div class="mock-body">
+            <aside class="mock-side">
+              <div class="mock-logo"><i></i> 运营管理</div>
+              <div class="mock-nav">概览</div>
+              <div class="mock-nav active">采购申请</div>
+              <div class="mock-nav">供应商报价</div>
+              <div class="mock-nav">采购订单</div>
+              <div class="mock-nav">货物收货</div>
+              <div class="mock-nav">库存</div>
+              <div class="mock-nav">审计日志</div>
+            </aside>
+            <main class="mock-main">
+              <div class="mock-title"><div><h3>采购申请</h3><p>复核需求、规则与审批准备情况。</p></div><span class="mock-button">+ 新建申请</span></div>
+              <div class="metrics">
+                <div class="metric"><span>等待复核</span><strong>12</strong></div>
+                <div class="metric"><span>今日到期</span><strong>04</strong></div>
+                <div class="metric"><span>超出预算</span><strong>02</strong></div>
+                <div class="metric"><span>平均周期</span><strong>1.8 天</strong></div>
+              </div>
+              <div class="data-card">
+                <div class="data-row header"><span>申请</span><span>部门</span><span>金额</span><span>状态</span></div>
+                <div class="data-row"><span><b>PR-2026-0184</b><br><small>条码扫描器 · 8 台</small></span><span>仓库</span><span>Rp 18,400,000</span><span class="mini-status amber">待复核</span></div>
+                <div class="data-row"><span><b>PR-2026-0183</b><br><small>包装材料 · 每月</small></span><span>运营</span><span>Rp 6,750,000</span><span class="mini-status green">已批准</span></div>
+                <div class="data-row"><span><b>PR-2026-0182</b><br><small>替换笔记本电脑</small></span><span>财务</span><span>Rp 15,900,000</span><span class="mini-status red">预算预警</span></div>
+                <div class="data-row"><span><b>PR-2026-0181</b><br><small>B 场地安全设备</small></span><span>设施</span><span>Rp 9,200,000</span><span class="mini-status amber">等待中</span></div>
+              </div>
+            </main>
+          </div>
+        </div>
+
+        <div class="exception-grid">
+          <div class="exception"><b>部分收货</b><p>分别跟踪已收、待收、拒收和延期交付数量，同时保留原始 PO 上下文。</p></div>
+          <div class="exception"><b>价格 / 数量差异</b><p>在行项目层说明差异，只将差异部分送审，而不是重新审批整笔交易。</p></div>
+          <div class="exception"><b>低库存预警</b><p>将补货建议与未结 PR、PO 关联，避免重复采购。</p></div>
+        </div>
+
+        <footer class="page-foot"><span class="confidential">示意界面 · 仅使用合成演示数据（Synthetic data）</span><span class="page-no">05 / 09</span></footer>
+      </div>
+    </section>
+
+    <!-- 06 / 销售履约与财务 -->
+    <section class="page" aria-label="销售履约与财务核算工作流">
+      <div class="page-inner">
+        <header class="doc-head">
+          <div class="brand"><span class="brand-mark">HX</span> HAURUX ERP Concept</div>
+          <span class="doc-kicker">05 · 核心业务流 B</span>
+        </header>
+
+        <span class="eyebrow">从订单到回款</span>
+        <h1 class="title">让销售履约与财务核算贯穿同一条可追溯工作流。</h1>
+        <p class="subtitle">用户可以把商业承诺、实物履约和财务结果作为一条相互关联的记录查看，无需反复录入同一份数据。</p>
+
+        <div class="split-flow">
+          <div class="vertical-flow">
+            <div class="vstep"><span class="vnum">1</span><div><strong>客户与报价</strong><small>价格表、折扣规则边界、有效期、税费与附件。</small></div><span class="owner">销售</span></div>
+            <div class="vstep"><span class="vnum">2</span><div><strong>销售订单确认</strong><small>可用库存、信用额度、承诺日期与审批异常。</small></div><span class="owner">销售 + 审批人</span></div>
+            <div class="vstep"><span class="vnum">3</span><div><strong>拣货、包装与发运</strong><small>库存预留、部分履约、序列号 / 批次与交付凭证。</small></div><span class="owner">仓库</span></div>
+            <div class="vstep"><span class="vnum">4</span><div><strong>生成发票</strong><small>依据已交付数量、付款条件和源单据生成。</small></div><span class="owner">财务</span></div>
+            <div class="vstep"><span class="vnum">5</span><div><strong>收款与对账</strong><small>匹配银行流水、处理部分付款并结清余额。</small></div><span class="owner">财务</span></div>
+          </div>
+
+          <aside class="ledger">
+            <span class="eyebrow" style="margin-bottom:3mm">财务驾驶舱</span>
+            <h3>财务需要一眼看到什么</h3>
+            <div class="ledger-row"><div><b>应收账款</b><small>12 张发票 · 3 张逾期</small></div><strong>Rp 284.6m</strong></div>
+            <div class="ledger-row"><div><b>应付账款</b><small>8 张账单 · 2 张本周到期</small></div><strong>Rp 119.2m</strong></div>
+            <div class="ledger-row"><div><b>未匹配银行流水</b><small>需要完成对账</small></div><strong>07</strong></div>
+            <div class="ledger-row"><div><b>草稿日记账</b><small>等待复核 / 过账</small></div><strong>04</strong></div>
+            <div style="margin-top:4mm;padding:3mm;border:.3mm solid var(--line-dark);border-radius:2.5mm;background:rgba(255,255,255,.035)">
+              <div style="display:flex;justify-content:space-between;color:#8c98a2;font-size:6pt"><span>源单据完整度</span><b style="color:var(--accent)">94%</b></div>
+              <div style="height:2mm;margin-top:2mm;border-radius:9mm;background:#29323c;overflow:hidden"><div style="width:94%;height:100%;background:var(--accent)"></div></div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="control-grid">
+          <div class="control"><i>01</i><h3>信用与折扣控制</h3><p>确认订单前展示额度、风险敞口、毛利与审批原因。</p></div>
+          <div class="control"><i>02</i><h3>承诺与可用库存</h3><p>按仓库显示可承诺量、替代物料和预计补货日期。</p></div>
+          <div class="control"><i>03</i><h3>源单据关联核算</h3><p>每张发票与日记账都关联订单、交付、收货或已批准调整。</p></div>
+          <div class="control"><i>04</i><h3>异常驱动任务清单</h3><p>优先处理逾期、不匹配、阻塞、重复和未过账事项，而不是只查看静态报表。</p></div>
+        </div>
+
+        <div class="grid-3" style="margin-top:5mm">
+          <div class="card"><span class="badge amber">部分履约</span><p class="micro" style="margin-top:2mm">拆分交付，同时保留剩余承诺数量并让客户侧状态清晰可见。</p></div>
+          <div class="card"><span class="badge red">信用冻结</span><p class="micro" style="margin-top:2mm">解释阻塞规则，并将例外申请作为受控操作提供。</p></div>
+          <div class="card"><span class="badge blue">付款匹配</span><p class="micro" style="margin-top:2mm">推荐可能的匹配项，同时保留人工确认轨迹。</p></div>
+        </div>
+
+        <footer class="page-foot"><span class="confidential">示意工作流 · 规则需由相关方验证</span><span class="page-no">06 / 09</span></footer>
+      </div>
+    </section>
+
+    <!-- 07 / 设计系统 -->
+    <section class="page" aria-label="ERP 设计系统">
+      <div class="page-inner">
+        <header class="doc-head">
+          <div class="brand"><span class="brand-mark">HX</span> HAURUX ERP Concept</div>
+          <span class="doc-kicker">06 · 设计系统</span>
+        </header>
+
+        <span class="eyebrow">面向 ERP 规模的一致性</span>
+        <h1 class="title">一套系统，而不是 37 张彼此割裂的视觉稿。</h1>
+        <p class="subtitle">可复用的设计变量和交互模式能够减少设计债务、提升开发效率，并让后续 ERP 模块从第一天起就保持一致。</p>
+
+        <div class="tokens">
+          <div>
+            <h3 style="margin-bottom:3mm;font-size:8pt;letter-spacing:.06em">核心色板</h3>
+            <div class="palette">
+              <div class="swatch"><div class="swatch-color" style="background:#0b0d12"></div><div class="swatch-meta"><b>主墨色</b><span>#0B0D12</span></div></div>
+              <div class="swatch"><div class="swatch-color" style="background:#c8ff3d"></div><div class="swatch-meta"><b>操作色</b><span>#C8FF3D</span></div></div>
+              <div class="swatch"><div class="swatch-color" style="background:#f4f5ef"></div><div class="swatch-meta"><b>画布色</b><span>#F4F5EF</span></div></div>
+              <div class="swatch"><div class="swatch-color" style="background:#237a4c"></div><div class="swatch-meta"><b>成功色</b><span>#237A4C</span></div></div>
+              <div class="swatch"><div class="swatch-color" style="background:#b6433c"></div><div class="swatch-meta"><b>紧急色</b><span>#B6433C</span></div></div>
+            </div>
+          </div>
+          <div class="type-card">
+            <span class="doc-kicker">文字系统</span>
+            <div class="type-display">默认就是<br>清晰易读。</div>
+            <div class="type-body">为运营界面提供清晰的数字对齐、稳定层级、紧凑密度和可读字号下限。</div>
+            <div style="margin-top:4mm;display:flex;justify-content:space-between;color:var(--muted);font-size:6pt"><span>展示 / 40</span><span>标题 / 24</span><span>正文 / 14</span><span>辅助 / 12</span></div>
+          </div>
+        </div>
+
+        <div class="component-board">
+          <div class="component-row"><div class="component-label">操作</div><div class="component-demo"><span class="ui-button primary">新建订单</span><span class="ui-button secondary">保存草稿</span><span class="ui-button secondary">导出</span><span class="ui-button danger">作废单据</span></div></div>
+          <div class="component-row"><div class="component-label">表单字段</div><div class="component-demo"><span class="input">搜索客户或订单…</span><span class="input">仓库：Jakarta ▾</span><span class="input">日期范围 ▾</span></div></div>
+          <div class="component-row"><div class="component-label">状态</div><div class="component-demo"><span class="badge green">已批准</span><span class="badge blue">处理中</span><span class="badge amber">待复核</span><span class="badge red">已阻塞</span></div></div>
+          <div class="component-row"><div class="component-label">表格行为</div><div class="component-demo"><span class="pill">已保存视图</span><span class="pill">列控制</span><span class="pill">批量操作</span><span class="pill">固定合计</span><span class="pill">导出日志</span></div></div>
+        </div>
+
+        <h3 style="margin:5mm 0 3mm;font-size:8pt;letter-spacing:.06em">必备界面状态</h3>
+        <div class="state-strip">
+          <div class="state"><b>空白</b><p>说明为何没有内容，并提供下一项有价值的操作或导入路径。</p></div>
+          <div class="state"><b>加载中</b><p>保持表格结构稳定，并防止用户意外重复提交。</p></div>
+          <div class="state"><b>错误</b><p>说明失败内容、已保留内容，以及如何重试或寻求支持。</p></div>
+          <div class="state"><b>只读</b><p>说明是哪个权限或单据状态阻止了编辑。</p></div>
+        </div>
+
+        <div class="grid-3" style="margin-top:5mm">
+          <div class="card"><h3>无障碍可用性</h3><p class="micro">关注 WCAG 对比度、键盘焦点、语义标签、非颜色状态提示和足够大的操作目标。</p></div>
+          <div class="card"><h3>响应式策略</h3><p class="micro">桌面优先承载完整工作流，平板安全呈现详情，移动端聚焦高优先级审批，而不是压缩桌面表格。</p></div>
+          <div class="card"><h3>开发交接</h3><p class="micro">提供命名组件、变体、设计变量、间距规则、响应式说明、校验方式和原型行为。</p></div>
+        </div>
+
+        <footer class="page-foot"><span class="confidential">设计变量仅用于表达概念方向</span><span class="page-no">07 / 09</span></footer>
+      </div>
+    </section>
+
+    <!-- 08 / 交付 -->
+    <section class="page delivery" aria-label="设计交付计划">
+      <div class="page-inner">
+        <header class="doc-head">
+          <div class="brand"><span class="brand-mark">HX</span> HAURUX ERP Concept</div>
+          <span class="doc-kicker">07 · 交付计划</span>
+        </header>
+
+        <span class="eyebrow">协作透明、过程可审查、资料可直接交接</span>
+        <h1 class="title">从模糊需求走向可实施 UI 的分阶段路径。</h1>
+        <p class="subtitle">我不会孤立地设计每个界面，而是先验证风险最高的工作流，确定共享模式，再有把握地扩展到完整界面清单。</p>
+
+        <div class="timeline">
+          <article class="phase"><div class="phase-no">阶段 01</div><div><h3>需求发现与工作流审查</h3><p>访谈相关方，梳理当前流程、用户、实体、业务规则、痛点和技术约束。</p></div><div class="phase-output"><b>产出</b>范围基线<br>问题清单<br>风险架构图</div></article>
+          <article class="phase"><div class="phase-no">阶段 02</div><div><h3>信息架构与 UX 流程</h3><p>梳理导航、模块边界、角色路径、状态模型、界面清单、审批和异常工作流。</p></div><div class="phase-output"><b>产出</b>站点地图<br>用户流程<br>权限草案</div></article>
+          <article class="phase"><div class="phase-no">阶段 03</div><div><h3>核心工作流线框图</h3><p>制作低保真 PR→PO→收货、订单→回款、角色管理、运营看板与关键详情模式。</p></div><div class="phase-output"><b>产出</b>线框图<br>UX 评审<br>已验证模式</div></article>
+          <article class="phase"><div class="phase-no">阶段 04</div><div><h3>设计系统与高保真 UI</h3><p>完善设计变量、组件、响应式规则、表格、表单、状态、反馈及所有已约定界面。</p></div><div class="phase-output"><b>产出</b>UI 组件库<br>高保真界面<br>状态变体</div></article>
+          <article class="phase"><div class="phase-no">阶段 05</div><div><h3>原型、交接与开发支持</h3><p>交付优先工作流原型、标注、资源导出、设计 QA 清单、开发讲解与评审修正。</p></div><div class="phase-output"><b>产出</b>交互原型<br>Figma 交接<br>QA 支持</div></article>
+        </div>
+
+        <div class="delivery-note">
+          <div class="scope-note">
+            <h3>建议规划周期：14 至 20 个工作日</h3>
+            <p>最终时间取决于现有文档、字段复杂度、审批变体数量、集成方式和反馈速度。进入制作前确认里程碑；范围变化会被明确记录。</p>
+          </div>
+          <div class="meeting-note">
+            <h3>灵活协作</h3>
+            <p>异步更新 + 工作时间内安排线上评审。每个已批准阶段最多进行两轮集中评审。</p>
+          </div>
+        </div>
+
+        <div class="grid-4" style="margin-top:5mm">
+          <div class="card"><h3 style="font-size:7.3pt">Figma 源文件</h3><p class="micro">结构清晰的页面、组件、变体和资源。</p></div>
+          <div class="card"><h3 style="font-size:7.3pt">可点击原型</h3><p class="micro">用于评审与开发对齐的优先工作流。</p></div>
+          <div class="card"><h3 style="font-size:7.3pt">UX 标注</h3><p class="micro">规则、状态、权限、校验和响应式说明。</p></div>
+          <div class="card"><h3 style="font-size:7.3pt">交接支持</h3><p class="micro">设计讲解，以及依据已批准设计开展的重点 QA。</p></div>
+        </div>
+
+        <footer class="page-foot"><span class="confidential">周期估算 · 需在需求发现后确认</span><span class="page-no">08 / 09</span></footer>
+      </div>
+    </section>
+
+    <!-- 09 / 联系 -->
+    <section class="page dark closing" aria-label="启动问题与联系方式">
+      <div class="page-inner">
+        <div class="cover-top">
+          <div class="brand"><span class="brand-mark">HX</span> HAURUX ERP Concept</div>
+          <span class="badge demo">欢迎进一步沟通</span>
+        </div>
+
+        <div class="closing-grid">
+          <div>
+            <span class="eyebrow">开始之前</span>
+            <h1>回答三个问题，就能把概念推进为<em>适合你的 ERP。</em></h1>
+            <p class="closing-lede">一次简短的需求发现沟通可以确认范围、消除假设，并确定现实可行的首个里程碑。</p>
+
+            <div style="margin-top:8mm">
+              <div class="question"><span class="question-no">1</span><div><strong>这是从零搭建 ERP，还是改版现有系统？</strong><p>如果是改版，是否可以提供演示访问、截图、SOP、字段清单或当前用户痛点？</p></div></div>
+              <div class="question"><span class="question-no">2</span><div><strong>哪些业务规则不可妥协？</strong><p>必须支持哪些用户角色、审批层级、公司与仓库结构、币种、税务、计价规则和集成？</p></div></div>
+              <div class="question"><span class="question-no">3</span><div><strong>第一个获批里程碑应当是什么？</strong><p>哪个模块或工作流优先级最高、需要覆盖哪些视口、由谁做最终确认？</p></div></div>
+            </div>
+          </div>
+
+          <aside class="contact-card">
+            <img src="assets/avatar.png" alt="Zhenghao Zhang" />
+            <h2>Zhenghao Zhang</h2>
+            <div class="role-line">UI/UX · 产品系统 · Web ERP</div>
+            <div class="contact-item"><b>主页</b><span>github.com/zhang-zhenghao</span></div>
+            <div class="contact-item"><b>协作方式</b><span>灵活的线上协作</span></div>
+            <div class="contact-item"><b>工作语言</b><span>英语 · 印度尼西亚语（书面）</span></div>
+            <div class="contact-item"><b>下一步</b><span>30 分钟工作流与范围评审</span></div>
+          </aside>
+        </div>
+
+        <div class="closing-note">
+          <strong style="display:block;margin-bottom:1.3mm;color:var(--white);font-size:7pt">双语诚信声明 · Integrity Statement</strong>
+          本作品为自主制作的概念演示（Concept / Demo），用于展示复杂 Web ERP 的产品思考与前端实现能力。页面中的组织、人物、记录、数量、金额、状态历史和绩效数据均为合成演示数据（Synthetic data），不代表真实客户项目、正式上线系统或已验证的业务成果。37 个界面构成拟议的信息架构与设计范围，不代表已经完成 37 个生产级界面。最终 UI 需要在相关方验证后制作。
+        </div>
+
+        <div style="position:absolute;right:16mm;bottom:23mm;left:16mm;display:flex;align-items:flex-end;justify-content:space-between;padding-top:5mm;border-top:.3mm solid var(--line-dark)">
+          <div><span class="doc-kicker">本概念由</span><div style="margin-top:1.5mm;font-size:10pt;font-weight:800">Zhenghao Zhang</div></div>
+          <div style="color:var(--accent);font-size:15pt;font-weight:800;letter-spacing:-.025em">让复杂工作变得清晰。</div>
+        </div>
+
+        <footer class="page-foot"><span class="confidential">© 2026 Zhenghao Zhang</span><span class="page-no">09 / 09</span></footer>
+      </div>
+    </section>
+  </body>
+</html>
