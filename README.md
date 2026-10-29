@@ -127,4 +127,6 @@ Source code is available under the MIT License. The portrait, screenshots, PDF, 
 
 ## Contact
 
-For project inquiries, contact me through X or the hiring platform where you found this portfolio. You can also [view my GitHub profile](https://github.com/zhang-zhenghao).
+For project inquiries, use the [project inquiry section on my GitHub profile](https://github.com/Zhang-ZhengHao#work-with-me--%E9%A1%B9%E7%9B%AE%E5%90%88%E4%BD%9C). Describe the ERP workflow you want to improve and the output you need.
+
+GitHub inquiries require sign-in and are public. Use fictional examples; discuss private project details and pricing on the hiring platform where you found this portfolio.

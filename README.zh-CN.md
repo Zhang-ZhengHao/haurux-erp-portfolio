@@ -127,4 +127,6 @@ ERP 界面中的组织、人物、记录、数值和绩效数据均为合成演�
 
 ## 联系方式
 
-如需沟通项目，可通过 X 或你发现此作品集的招聘平台联系我，也可以[查看我的 GitHub 主页](https://github.com/zhang-zhenghao)。
+如需沟通 ERP 项目，请前往 GitHub 主页的[项目合作入口](https://github.com/Zhang-ZhengHao#work-with-me--%E9%A1%B9%E7%9B%AE%E5%90%88%E4%BD%9C)，说明想改善的工作流程和希望得到的结果。
+
+GitHub 咨询需要登录，提交后公开。请使用虚构示例；私密项目细节和报价请在你发现此作品集的招聘平台沟通。
