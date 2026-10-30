@@ -60,9 +60,9 @@ class PortfolioContractTests(unittest.TestCase):
 
     def test_public_contact_is_direct_and_generic(self):
         html = (ROOT / "index.html").read_text(encoding="utf-8")
-        self.assertIn("https://github.com/zhang-zhenghao", html)
-        self.assertIn("View developer profile", html)
-        self.assertIn("Contact via X or the hiring platform where you found this portfolio.", html)
+        self.assertIn('href="https://github.com/Zhang-ZhengHao#work-with-me--%E9%A1%B9%E7%9B%AE%E5%90%88%E4%BD%9C"', html)
+        self.assertIn("Project inquiries", html)
+        self.assertIn("GitHub inquiries are public and require sign-in.", html)
         self.assertNotIn("mailto:", html)
 
 

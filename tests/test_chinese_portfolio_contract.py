@@ -93,7 +93,9 @@ class ChinesePortfolioContractTests(unittest.TestCase):
             "概念演示（Concept / Demo）",
             "合成演示数据（Synthetic data）",
             "Zhenghao Zhang",
-            "可通过 X 或你发现此作品集的招聘平台联系我。",
+            "GitHub 咨询需要登录，提交后公开。",
+            'href="https://github.com/Zhang-ZhengHao#work-with-me--%E9%A1%B9%E7%9B%AE%E5%90%88%E4%BD%9C"',
+            "项目合作入口",
             'id="protoActionStatus"',
             'aria-live="polite"',
         ):
